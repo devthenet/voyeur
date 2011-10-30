@@ -3,3 +3,6 @@
 Gemfile.lock
 pkg/*
 bin
+test_data/*.mp4
+test_data/*.ogv
+test_data/*.webm
