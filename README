@@ -24,8 +24,13 @@ hash x264 ffmpeg ffplay ffprobe
 Conversion settings
 -------------------
 http://stackoverflow.com/questions/5487085/ffmpeg-covert-html-5-video-not-working
-
 http://johndyer.name/ffmpeg-settings-for-html5-codecs-h264mp4-theoraogg-vp8webm/
+
+
+ffmpeg -i test.mpeg -b 1500k -vcodec libx264 -vpre slow -vpre baseline -g 30 test.mp4
+ffmpeg -i test.mpeg -b 1500k -vcodec libvpx -acodec libvorbis -ab 160000 -f webm -g 30 test.webm
+ffmpeg -i test.mpeg -b 1500k -vcodec libtheora -acodec libvorbis -ab 160000 -g 30 test.ogv
+
 
 Conversion cheat sheet
 ----------------------
