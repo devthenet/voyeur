@@ -1,0 +1,23 @@
+Sources
+=======
+
+How to install latest ffmpeg on Ubuntu
+-------------------------------
+Links
+-----
+https://help.ubuntu.com/community/FFMpeg
+* http://ubuntuforums.org/showthread.php?t=786095
+* STEP 5
+------------------------------------------------------------------------------------------
+cd
+git clone --depth 1 git://git.videolan.org/ffmpeg
+cd ffmpeg
+./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb \
+    --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis --enable-libx264 \
+    --enable-nonfree --enable-postproc --enable-version3 --enable-x11grab  --enable-libvpx
+make
+sudo checkinstall --pkgname=ffmpeg --pkgversion="5:$(date +%Y%m%d%H%M)-git" --backup=no \
+  --deldoc=yes --fstrans=no --default
+hash x264 ffmpeg ffplay ffprobe
+------------------------------------------------------------------------------------------
+
