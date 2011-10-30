@@ -1,5 +1,6 @@
 require "SUPERvideo/version"
+require 'SUPERvideo/video'
 
 module Supervideo
-  # Your code goes here...
+  
 end
