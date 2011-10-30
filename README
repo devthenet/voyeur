@@ -5,7 +5,6 @@ How to install latest ffmpeg on Ubuntu
 -------------------------------
 Links
 -----
-https://help.ubuntu.com/community/FFMpeg
 * http://ubuntuforums.org/showthread.php?t=786095
 * STEP 5
 ------------------------------------------------------------------------------------------
@@ -21,3 +20,13 @@ sudo checkinstall --pkgname=ffmpeg --pkgversion="5:$(date +%Y%m%d%H%M)-git" --ba
 hash x264 ffmpeg ffplay ffprobe
 ------------------------------------------------------------------------------------------
 
+
+Conversion settings
+-------------------
+http://stackoverflow.com/questions/5487085/ffmpeg-covert-html-5-video-not-working
+
+http://johndyer.name/ffmpeg-settings-for-html5-codecs-h264mp4-theoraogg-vp8webm/
+
+Conversion cheat sheet
+----------------------
+http://rodrigopolo.com/ffmpeg/cheats.html
