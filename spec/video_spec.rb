@@ -20,10 +20,11 @@ describe SuperVideo::Video do
   end
 
   it "should convert a video to all HTML5 video formats" do
-    pending "Video.new( filename: 'filename.mpeg').convert to: :html5
+    pending "Video.new( filename: 'filename.mpeg').convert to: :html5"
   end
 
   it "should allow the user to specify a path" do
-    pending 'convert to: gv, output_base_filename: icecream.ogv'
+    pending "Video.new( filename: 'filename.mpeg').convert to: ogv, output_base_filename: icecream.ogv"
   end
+  
 end

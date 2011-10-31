@@ -4,4 +4,4 @@ Gemfile.lock
 pkg/*
 bin
 test_data/*
-
+*.swp
