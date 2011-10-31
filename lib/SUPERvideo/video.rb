@@ -7,7 +7,7 @@ module SuperVideo
 
     def convert(options)
       format = options[:to]
-      converter = SuperVideo::VideoConverter.new(format: format)
+      converter = SuperVideo::VideoConverter.create(format: format)
       converter.convert
     end
   end
