@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe SuperVideo::VideoConverter do
+  
   context "mp4" do
     before :each do
       @converter = SuperVideo::VideoConverter.create(format: :mp4)
@@ -14,7 +15,7 @@ describe SuperVideo::VideoConverter do
 
     context "#convert_options" do
       it "default convert string" do
-        @converter.convert_options.should == "ffmpeg -i test.mpeg -b 1500k -vcodec libx264 -vpre slow -vpre baseline -g 30 test.mp4"
+        @converter.convert_options.should == "-i test.mpeg -b 1500k -vcodec libx264 -vpre slow -vpre baseline -g 30 test.mp4"
       end
 
       it "should name the video correctly" do

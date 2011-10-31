@@ -12,6 +12,8 @@ describe SuperVideo::Video do
   end
 
   it "should convert a video to mp4" do
+    test_video_path = File.expand_path(File.dirname(__FILE__))
+    test_video_file_name = "test.mpeg"
     pending "Video.new( filename: 'filename.mpeg').convert to: :mp4"
   end
 

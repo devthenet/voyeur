@@ -11,8 +11,8 @@ module SuperVideo
       end
     end
 
-    def convert(pew)
-      `ffmpeg #{self.convert_options(pew)}`
+    def convert
+      `ffmpeg #{self.convert_option}`
     end
   end
 end

@@ -5,3 +5,4 @@ pkg/*
 bin
 test_data/*
 *.swp
+*.swo
