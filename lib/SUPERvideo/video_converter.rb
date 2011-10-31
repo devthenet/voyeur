@@ -8,5 +8,9 @@ module SuperVideo
       end
     end
 
+    def convert
+      `ffmpeg #{self.argument_list}`
+    end
+
   end
 end
