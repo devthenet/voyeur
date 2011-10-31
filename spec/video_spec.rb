@@ -8,19 +8,19 @@ describe SuperVideo::Video do
   end
 
   it "should convert a video to ogv" do
-    pending 'Video.new filename: filename.ogv'
+    pending "Video.new( filename: 'filename.mpeg').convert to: :ogv"
   end
 
   it "should convert a video to mp4" do
-    pending 'Video.new filename: filename.mp4'
+    pending "Video.new( filename: 'filename.mpeg').convert to: :mp4"
   end
 
   it "should convert a video to vp8" do
-    pending 'Video.new filename: filename.vp8'
+    pending "Video.new( filename: 'filename.mpeg').convert to: :vp8 )"
   end
 
-  it "should convert a video all the video formats" do
-    pending
+  it "should convert a video to all HTML5 video formats" do
+    pending "Video.new( filename: 'filename.mpeg').convert to: :html5
   end
 
   it "should allow the user to specify a path" do
