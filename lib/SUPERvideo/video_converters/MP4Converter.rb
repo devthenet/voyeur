@@ -1,5 +1,5 @@
 module SuperVideo
-  class MP4Converter
+  class Mp4Converter
     def initialize
     end
 
@@ -7,7 +7,7 @@ module SuperVideo
       defaults = {
          bitrate: "1500k",
          codec: "libx264",
-         g: 30 
+         g: 30
       }
       default.convert_to_s
     end

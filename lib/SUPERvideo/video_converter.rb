@@ -3,8 +3,11 @@ module SuperVideo
     def self.create(options)
       format = options[:format]
       case format
+        when :ogv
+        debugger
+          OgvConverter.new
         when :mp4
-          MP4Converter.new
+          Mp4Converter.new
       end
     end
 
