@@ -3,7 +3,7 @@ module SuperVideo
     attr_reader :filename
     def initialize(options)
       @filename = options[:filename]
-    end    
+    end
 
     def convert(options)
       format = options[:to]

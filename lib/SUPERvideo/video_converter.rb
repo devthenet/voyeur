@@ -12,8 +12,7 @@ module SuperVideo
     end
 
     def convert(pew)
-      debugger
-      `ffmpeg #{self.convert_options}`
+      `ffmpeg #{self.convert_options(pew)}`
     end
   end
 end
