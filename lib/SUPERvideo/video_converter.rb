@@ -1,19 +1,19 @@
 module SuperVideo
   class VideoConverter
+    attr_accessor :bitrate
     def self.create(options)
       format = options[:format]
       case format
         when :ogv
-        debugger
           OgvConverter.new
         when :mp4
           Mp4Converter.new
       end
     end
 
-    def convert
-      `ffmpeg #{self.argument_list}`
+    def convert(pew)
+      debugger
+      `ffmpeg #{self.convert_options}`
     end
-
   end
 end
