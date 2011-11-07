@@ -17,8 +17,8 @@ describe SuperVideo::Video do
     pending "Video.new( filename: 'filename.mpeg').convert to: :mp4"
   end
 
-  it "should convert a video to vp8" do
-    pending "Video.new( filename: 'filename.mpeg').convert to: :vp8 )"
+  it "should convert a video to webm" do
+    pending "Video.new( filename: 'filename.mpeg').convert to: :webm )"
   end
 
   it "should convert a video to all HTML5 video formats" do

@@ -17,15 +17,15 @@ describe SuperVideo::Mp4Converter do
 
       it "should name the video correctly" do
         pending
-        @converter.output_file_name.should == "test_video.mp4"
+        @converter.output_video.filename.should == "test_video.mp4"
       end
       it "should return a video" do
-        pending
-        @converter.input_video.should == video
+        @converter.convert(video: @video)
+        @converter.input_video.should == @video
       end
       it "should return conversion status" do
         pending
-        result = @converter.convert(video: video)
+        result = @converter.convert(video: @video)
         result[:status].should == :success
       end
     end
