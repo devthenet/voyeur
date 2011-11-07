@@ -6,7 +6,7 @@ module SuperVideo
     end
     
     def convert_options
-      "-i test.mpeg -b 1500k -vcodec libx264 -vpre slow -vpre baseline -g 30 test.mp4"
+      "-b 1500k -vcodec libx264 -vpre slow -vpre baseline -g 30"
     end
   end
 
