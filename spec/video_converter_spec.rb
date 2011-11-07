@@ -14,7 +14,7 @@ describe SuperVideo::VideoConverter do
 
     context "#convert_options" do
       it "default convert string" do
-        @converter.convert_options.should == "test.mpeg -b 1500k -vcodec libx264 -vpre slow -vpre baseline -g 30 test.mp4"
+        @converter.convert_options.should == "-b 1500k -vcodec libx264 -vpre slow -vpre baseline -g 30"
       end
 
       it "should name the video correctly" do
@@ -45,7 +45,7 @@ describe SuperVideo::VideoConverter do
 
     context "#convert_options" do
       it "default convert string" do
-        @converter.convert_options.should == "-b 1500k -vcodec libtheora -acodec libvorbis -ab 160000 -g 30 test.ogv"
+        @converter.convert_options.should == "-b 1500k -vcodec libtheora -acodec libvorbis -ab 160000 -g 30"
       end
 
       it "should name the video correctly" do
@@ -77,7 +77,7 @@ describe SuperVideo::VideoConverter do
 
     context "#convert_options" do
       it "default convert string" do
-        @converter.convert_options.should == "-b 1500k -vcodec libvpx -acodec libvorbis -ab 160000 -f webm -g 30 test.webm"
+        @converter.convert_options.should == "-b 1500k -vcodec libvpx -acodec libvorbis -ab 160000 -f webm -g 30"
       end
 
       it "should name the video correctly" do
