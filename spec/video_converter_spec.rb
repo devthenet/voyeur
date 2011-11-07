@@ -10,12 +10,11 @@ describe SuperVideo::VideoConverter do
 
     it "should use the correct factory" do
       @converter.class.to_s.should == "SuperVideo::Mp4Converter"
-      #converter.input_file_name.should == video.input_filename
     end
 
     context "#convert_options" do
       it "default convert string" do
-        @converter.convert_options.should == "-i test.mpeg -b 1500k -vcodec libx264 -vpre slow -vpre baseline -g 30 test.mp4"
+        @converter.convert_options.should == "test.mpeg -b 1500k -vcodec libx264 -vpre slow -vpre baseline -g 30 test.mp4"
       end
 
       it "should name the video correctly" do

@@ -1,5 +1,6 @@
 module SuperVideo
   class OgvConverter < VideoConverter
+    
     def file_extension
       "ogv"
     end

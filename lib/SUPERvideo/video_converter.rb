@@ -18,7 +18,7 @@ module SuperVideo
       raise "Please specify a video to convert!" if video.nil?
       
       output_video = Video.new(filename: self.output_file_name(video.filename))
-      `ffmpeg -i #{video.filename} #{self.convert_option} #{output_video.filename} `
+      `ffmpeg -i #{video.filename} #{self.convert_options} #{output_video.filename} `
       return {status: :sucess, video: output_video}
     end
     
