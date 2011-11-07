@@ -16,7 +16,7 @@ describe SuperVideo::Mp4Converter do
       end
 
       it "should name the video correctly" do
-        pending
+        @converter.convert(video: @video)
         @converter.output_video.filename.should == "test_video.mp4"
       end
       it "should return a video" do
