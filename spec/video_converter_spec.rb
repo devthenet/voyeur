@@ -63,6 +63,5 @@ describe SuperVideo::VideoConverter do
         result[:status].should == :success
       end
     end
-
   end
 end
