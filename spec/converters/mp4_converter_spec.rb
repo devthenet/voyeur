@@ -24,9 +24,9 @@ describe SuperVideo::Mp4Converter do
         @converter.input_video.should == @video
       end
       it "should return conversion status" do
-        pending
         result = @converter.convert(video: @video)
         result[:status].should == :success
+        result[:video].should == @converter.output_video
       end
     end
   end

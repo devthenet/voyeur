@@ -21,7 +21,7 @@ module SuperVideo
       
       @output_video = Video.new(filename: self.output_file_name(@input_video.filename))
       `ffmpeg -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}`
-      return {status: :sucess, video: @output_video}
+      return {status: :success, video: @output_video}
     end
     
     def output_file_name(input_file_name)
