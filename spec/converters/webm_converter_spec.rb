@@ -14,6 +14,11 @@
         @converter.convert_options.should == "-b 1500k -vcodec libvpx -acodec libvorbis -ab 160000 -f webm -g 30"
       end
 
+      it "should raise an exception if no video is passed" do
+        @video = nil
+        @converter.convert(video: @video).should raise_error
+      end
+
       it "should name the video correctly" do
         @converter.convert(video: @video)
         @converter.output_video.filename.should == "test_video.webm"
