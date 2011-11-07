@@ -7,7 +7,6 @@
 
     it "should use the correct factory" do
       @converter.class.to_s.should == "SuperVideo::WebmConverter"
-      #converter.input_file_name.should == video.input_filename #erm??
     end
 
     context "#convert_options" do
@@ -16,13 +15,15 @@
       end
 
       it "should name the video correctly" do
-        pending
-        @converter.output_file_name.should == "test_video.webm"
+        @converter.convert(video: @video)
+        @converter.output_video.filename.should == "test_video.webm"
       end
+
       it "should return a video" do
-        pending
-        @converter.input_video.should == video
+        @converter.convert(video: @video)
+        @converter.input_video.should == @video
       end
+
       it "should return conversion status" do
         pending
         result = @converter.convert(video: video)

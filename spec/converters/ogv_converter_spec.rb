@@ -4,9 +4,9 @@ describe SuperVideo::OgvConverter do
       @converter = SuperVideo::VideoConverter.create(format: :ogv)
       @video = SuperVideo::Video.new(filename: 'test_video.ogv')
     end
+
     it "should use the correct factory" do
       @converter.class.to_s.should == "SuperVideo::OgvConverter"
-      #converter.input_file_name.should == video.input_filename #erm??
     end
 
     context "#convert_options" do
@@ -15,13 +15,15 @@ describe SuperVideo::OgvConverter do
       end
 
       it "should name the video correctly" do
-        pending
-        @converter.output_file_name.should == "test_video.mp4"
+        @converter.convert(video: @video)
+        @converter.output_video.filename.should == "test_video.ogv"
       end
+
       it "should return a video" do
-        pending
-        @converter.input_video.should == video
+        @converter.convert(video: @video)
+        @converter.input_video.should == @video
       end
+
       it "should return conversion status" do
         pending
         result = @converter.convert(video: video)
