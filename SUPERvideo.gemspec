@@ -4,7 +4,7 @@ require "SUPERvideo/version"
 
 Gem::Specification.new do |s|
   s.name        = "SUPERvideo"
-  s.version     = Supervideo::VERSION
+  s.version     = SuperVideo::VERSION
   s.authors     = ["Peter Garbers", "Hendrik F. Louw"]
   s.email       = ["peter.garbers@gmail.com", "hflouw@gmail.com"]
   s.homepage    = ""
