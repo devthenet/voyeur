@@ -8,6 +8,8 @@ module SuperVideo
           OgvConverter.new
         when :mp4
           Mp4Converter.new
+        when :webm
+          WebmConverter.new
       end
     end
 
