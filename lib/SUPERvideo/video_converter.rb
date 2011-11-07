@@ -13,8 +13,10 @@ module SuperVideo
       end
     end
 
-    def convert
-      `ffmpeg #{self.convert_option}`
+    def convert(options)
+      video = options[:video]
+      raise "Please specify a video to convert!" if video.nil?
+      `ffmpeg -i #{video.filename} #{self.convert_option}`
     end
   end
 end
