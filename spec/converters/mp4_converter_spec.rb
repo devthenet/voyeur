@@ -29,9 +29,18 @@ describe Voyeur::Mp4Converter do
       end
       it "should return conversion status" do
         result = @converter.convert(video: @video)
-        result[:status].should == :success
+        result[:status].should == 0
         result[:video].should == @converter.output_video
       end
+      it "should return stdout" do
+        result = @converter.convert(video: @video)
+        result[:stdout].should == ""
+      end
+      it "should return stderr" do
+        result = @converter.convert(video: @video)
+        result[:stderr].should == ""
+      end
+      
     end
   end
 end
