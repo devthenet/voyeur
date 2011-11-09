@@ -1,12 +1,12 @@
-describe SuperVideo::Mp4Converter do
+describe Voyeur::Mp4Converter do
   context "New Video" do
     before :each do
-      @converter = SuperVideo::VideoConverter.create(format: :mp4)
-      @video = SuperVideo::Video.new(filename: 'test_video.mpeg')
+      @converter = Voyeur::VideoConverter.create(format: :mp4)
+      @video = Voyeur::Video.new(filename: 'test_video.mpeg')
     end
 
     it "should use the correct factory" do
-      @converter.class.to_s.should == "SuperVideo::Mp4Converter"
+      @converter.class.to_s.should == "Voyeur::Mp4Converter"
     end
 
     context "#convert_options" do

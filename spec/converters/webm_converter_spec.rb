@@ -1,12 +1,12 @@
- describe SuperVideo::WebmConverter do
+ describe Voyeur::WebmConverter do
   context "New Video" do
     before :each do
-      @converter = SuperVideo::VideoConverter.create(format: :webm)
-      @video = SuperVideo::Video.new(filename: 'test_video.webm')
+      @converter = Voyeur::VideoConverter.create(format: :webm)
+      @video = Voyeur::Video.new(filename: 'test_video.webm')
     end
 
     it "should use the correct factory" do
-      @converter.class.to_s.should == "SuperVideo::WebmConverter"
+      @converter.class.to_s.should == "Voyeur::WebmConverter"
     end
 
     context "#convert_options" do

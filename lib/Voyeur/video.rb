@@ -1,4 +1,4 @@
-module SuperVideo
+module Voyeur
   class Video
     attr_reader :filename
     def initialize(options)
@@ -7,7 +7,7 @@ module SuperVideo
 
     def convert(options)
       format = options[:to]
-      converter = SuperVideo::VideoConverter.create(format: format)
+      converter = Voyeur::VideoConverter.create(format: format)
       converter.convert
     end
   end

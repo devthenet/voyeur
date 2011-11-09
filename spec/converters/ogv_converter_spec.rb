@@ -1,12 +1,12 @@
-describe SuperVideo::OgvConverter do
+describe Voyeur::OgvConverter do
   context "New Video" do
     before :each do
-      @converter = SuperVideo::VideoConverter.create(format: :ogv)
-      @video = SuperVideo::Video.new(filename: 'test_video.ogv')
+      @converter = Voyeur::VideoConverter.create(format: :ogv)
+      @video = Voyeur::Video.new(filename: 'test_video.ogv')
     end
 
     it "should use the correct factory" do
-      @converter.class.to_s.should == "SuperVideo::OgvConverter"
+      @converter.class.to_s.should == "Voyeur::OgvConverter"
     end
 
     context "#convert_options" do
