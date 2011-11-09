@@ -16,7 +16,7 @@
 
       it "should raise an exception if no video is passed" do
         @video = nil
-        @converter.convert(video: @video).should raise_error
+        -> { @converter.convert(video: @video) }.should raise_error
       end
 
       it "should name the video correctly" do
