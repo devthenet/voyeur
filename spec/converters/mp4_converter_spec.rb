@@ -36,8 +36,8 @@ describe Voyeur::Mp4Converter do
   
   context "An invalid Video" do
     before :each do
-      @converter = SuperVideo::VideoConverter.create(format: :mp4)
-      @video = SuperVideo::Video.new(filename: 'test_video.mpeg')
+      @converter = Voyeur::VideoConverter.create(format: :mp4)
+      @video = Voyeur::Video.new(filename: 'test_video.mpeg')
     end 
     context "File does not exist" do
       it "should return conversion status indicating failure" do
