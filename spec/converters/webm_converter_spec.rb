@@ -1,4 +1,6 @@
- describe Voyeur::WebmConverter do
+require 'spec_helper'
+
+describe Voyeur::WebmConverter do
   context "New Video" do
     before :each do
       @converter = Voyeur::VideoConverter.create(format: :webm)
