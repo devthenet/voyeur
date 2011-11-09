@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe Voyeur::Mp4Converter do
   context "A valid Video" do
     before :each do
@@ -33,12 +35,12 @@ describe Voyeur::Mp4Converter do
       end
     end
   end
-  
+
   context "An invalid Video" do
     before :each do
       @converter = Voyeur::VideoConverter.create(format: :mp4)
       @video = Voyeur::Video.new(filename: 'test_video.mpeg')
-    end 
+    end
     context "File does not exist" do
       it "should return conversion status indicating failure" do
         result = @converter.convert(video: @video)
@@ -46,8 +48,8 @@ describe Voyeur::Mp4Converter do
         result[:video].should == @converter.output_video
         result[:error_message].match(/test_video.mpeg: No such file or directory/).should_not == nil
         result[:stderr].nil?.should == false
-      end 
+      end
     end
-    
+
   end
 end

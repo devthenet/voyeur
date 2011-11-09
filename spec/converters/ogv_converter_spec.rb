@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe Voyeur::OgvConverter do
   context "New Video" do
     before :each do
