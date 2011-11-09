@@ -1,4 +1,7 @@
 *.gem
+.DS_Store
+Vagrantfile
+.vagrant
 .bundle
 Gemfile.lock
 pkg/*
