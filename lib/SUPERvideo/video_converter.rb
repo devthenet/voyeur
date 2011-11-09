@@ -4,15 +4,10 @@ module SuperVideo
     attr_reader :output_video
 
     def self.create(options)
-      format = options[:format]
-      case format
-      when :mp4
-        Mp4Converter.new
-      when :ogv
-        OgvConverter.new
-      when :webm
-        WebmConverter.new
-      end
+      constant = SuperVideo
+      klass = "#{options[:format].capitalize}Converter"
+      klass = constant.const_get(klass)
+      klass.new
     end
 
     def convert(options)
