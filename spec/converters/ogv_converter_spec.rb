@@ -18,7 +18,7 @@ describe Voyeur::OgvConverter do
 
       it "should raise an exception if no video is passed" do
         @video = nil
-        -> { @converter.convert(video: @video) }.should raise_error
+        -> { @converter.convert(video: @video) }.should raise_error Voyeur::Exceptions::NoVideoPresent
       end
 
       it "should name the video correctly" do
@@ -30,11 +30,21 @@ describe Voyeur::OgvConverter do
         @converter.convert(video: @video)
         @converter.input_video.should == @video
       end
+    end
+  end
 
-      it "should return conversion status" do
-        pending
-        result = @converter.convert(video: video)
-        result[:status].should == :success
+  context "An invalid Video" do
+    before :each do
+      @converter = Voyeur::VideoConverter.create(format: :ogv)
+      @video = Voyeur::Video.new(filename: 'test_video.mpeg')
+    end
+    context "File does not exist" do
+      it "should return conversion status indicating failure" do
+        result = @converter.convert(video: @video)
+        result[:status].should == 1
+        result[:video].should == @converter.output_video
+        result[:error_message].should match(/test_video.mpeg: No such file or directory/)
+        result[:stderr].nil?.should == false
       end
     end
   end

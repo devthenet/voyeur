@@ -30,12 +30,24 @@ describe Voyeur::WebmConverter do
         @converter.convert(video: @video)
         @converter.input_video.should == @video
       end
+    end
+  end
 
-      it "should return conversion status" do
-        pending
-        result = @converter.convert(video: video)
-        result[:status].should == :success
+  context "An invalid Video" do
+    before :each do
+      @converter = Voyeur::VideoConverter.create(format: :webm)
+      @video = Voyeur::Video.new(filename: 'test_video.mpeg')
+    end
+
+    context "File does not exist" do
+      it "should return conversion status indicating failure" do
+        result = @converter.convert(video: @video)
+        result[:status].should == 1
+        result[:video].should == @converter.output_video
+        result[:error_message].should match(/test_video.mpeg: No such file or directory/)
+        result[:stderr].nil?.should == false
       end
     end
   end
+
 end
