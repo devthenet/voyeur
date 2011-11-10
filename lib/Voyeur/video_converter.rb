@@ -21,7 +21,7 @@ module Voyeur
     end
 
     def output_file_name(input_file_name)
-      input_file_name.split('.').first + "." + self.file_extension
+      input_file_name.gsub(/\.[\w]+$/, "." + self.file_extension )
     end
 
     protected

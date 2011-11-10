@@ -6,7 +6,7 @@ module Voyeur
     end
 
     def convert_options
-      "-b 1500k -vcodec libx264 -vpre slow -vpre baseline -g 30"
+      "-b 1500k -vcodec libx264 -g 30"
     end
   end
 
