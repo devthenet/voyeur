@@ -16,8 +16,16 @@ module Voyeur
       @input_video = options[:video]
       raise Voyeur::Exceptions::NoVideoPresent unless @input_video
 
-      @output_video = Video.new(filename: self.output_file_name(@input_video.filename))
-      self.call_external_converter
+      begin
+        @output_video = Video.new(filename: self.output_file_name(@input_video.filename))
+        `ffmpeg -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}`
+        return {status: :success, video: @output_video}
+      rescue Voyeur::Exceptions::NoVideoPresent
+        warn "There was no video attached"
+      end
+
+      # @output_video = Video.new(filename: self.output_file_name(@input_video.filename))
+      # self.call_external_converter
     end
 
     def output_file_name(input_file_name)
@@ -25,21 +33,5 @@ module Voyeur
     end
 
     protected
-    def call_external_converter
-      command = "ffmpeg -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}"
-
-      out, err = ""
-
-      status = Open4::popen4(command) do |pid, stdin, stdout, stderr|
-        out = stdout.read.strip
-        err = stderr.read.strip
-      end
-
-      error_message = err.split('\n').last
-
-      @status = { status: status.exitstatus, stdout: out, stderr: err,
-                  error_message: error_message, video: @output_video }
-      return @status
-    end
   end
 end
