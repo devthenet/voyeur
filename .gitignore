@@ -7,5 +7,7 @@ Gemfile.lock
 pkg/*
 bin
 test_data/*
+*.mp4
 *.swp
 *.swo
+*.box

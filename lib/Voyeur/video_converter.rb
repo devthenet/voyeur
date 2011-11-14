@@ -15,7 +15,6 @@ module Voyeur
     def convert(options)
       @input_video = options[:video]
       raise Voyeur::Exceptions::NoVideoPresent unless @input_video
-
       @output_video = Video.new(filename: self.output_file_name(@input_video.filename))
       self.call_external_converter
     end
@@ -25,7 +24,10 @@ module Voyeur
     end
 
     protected
+
+
     def call_external_converter
+
       command = "ffmpeg -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}"
 
       out, err = ""
@@ -38,8 +40,11 @@ module Voyeur
       error_message = err.split('\n').last
 
       @status = { status: status.exitstatus, stdout: out, stderr: err,
-                  error_message: error_message, video: @output_video }
+        error_message: error_message, video: @output_video }
       return @status
+
+      # `ffmpeg -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}`
+      # return {status: :success, video: @output_video}
     end
   end
 end

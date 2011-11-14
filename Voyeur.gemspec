@@ -20,5 +20,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec"
   s.add_development_dependency "ruby-debug19"
-  s.add_dependency 'open4', '1.1.0'
+  s.add_dependency "open4"
 end
