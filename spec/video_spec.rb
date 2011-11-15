@@ -8,7 +8,7 @@ describe Voyeur::Video do
   end
 
   it "should convert a video to ogv" do
-    pending "Video.new( filename: 'filename.mpeg').convert to: :ogv"
+    Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: :ogv)
   end
 
   it "should convert a video to mp4" do
