@@ -25,11 +25,8 @@ module Voyeur
 
     protected
 
-
     def call_external_converter
-
       command = "ffmpeg -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}"
-
       out, err = ""
 
       status = Open4::popen4(command) do |pid, stdin, stdout, stderr|
@@ -42,9 +39,6 @@ module Voyeur
       @status = { status: status.exitstatus, stdout: out, stderr: err,
         error_message: error_message, video: @output_video }
       return @status
-
-      # `ffmpeg -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}`
-      # return {status: :success, video: @output_video}
     end
   end
 end

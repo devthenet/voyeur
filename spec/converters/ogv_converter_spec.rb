@@ -40,7 +40,6 @@ describe Voyeur::OgvConverter do
     end
     context "File does not exist" do
       it "should return conversion status indicating failure" do
-        pending "should return the status"
         result = @converter.convert(video: @video)
         result[:status].should == 1
         result[:video].should == @converter.output_video

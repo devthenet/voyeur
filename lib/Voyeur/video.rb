@@ -8,7 +8,7 @@ module Voyeur
     def convert(options)
       format = options[:to]
       converter = Voyeur::VideoConverter.create(format: format)
-      converter.convert
+      converter.convert(video: self)
     end
   end
 end

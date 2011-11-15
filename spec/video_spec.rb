@@ -9,16 +9,17 @@ describe Voyeur::Video do
 
   it "should convert a video to ogv" do
     Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: :ogv)
+    File.delete(valid_mpeg_file_path.gsub(/mpeg/, "ogv"))
   end
 
   it "should convert a video to mp4" do
-    test_video_path = File.expand_path(File.dirname(__FILE__))
-    test_video_file_name = "test.mpeg"
-    pending "Video.new( filename: 'filename.mpeg').convert to: :mp4"
+    Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: :mp4)
+    File.delete(valid_mpeg_file_path.gsub(/mpeg/, "mp4"))
   end
 
   it "should convert a video to webm" do
-    pending "Video.new( filename: 'filename.mpeg').convert to: :webm )"
+    Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: :webm)
+    File.delete(valid_mpeg_file_path.gsub(/mpeg/, "webm"))
   end
 
   it "should convert a video to all HTML5 video formats" do
