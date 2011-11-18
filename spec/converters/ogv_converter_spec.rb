@@ -21,12 +21,6 @@ describe Voyeur::OgvConverter do
         -> { @converter.convert(video: @video) }.should raise_error Voyeur::Exceptions::NoVideoPresent
       end
 
-      it "should name the video correctly" do
-        pending "no longer relevant"
-        @converter.convert(video: @video)
-        @converter.output_video.filename.should == "test_video.ogv"
-      end
-
       it "should return a video" do
         @converter.convert(video: @video)
         @converter.input_video.should == @video

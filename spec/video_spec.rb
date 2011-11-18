@@ -35,10 +35,6 @@ describe Voyeur::Video do
     File.delete(valid_mpeg_file_path.gsub(/mpeg/, "webm"))
   end
 
-  it "should allow the user to specify a path" do
-    pending "Video.new( filename: 'filename.mpeg').convert to: ogv, output_base_filename: icecream.ogv"
-  end
-
   it "should allow the user to name the video" do
     Voyeur::Video.new( filename: valid_mpeg_file_path ).
       convert(to: :webm, output_filename: "sexypants")
@@ -57,8 +53,8 @@ describe Voyeur::Video do
   it "should allow a user to specify a video path and filename" do
     output_path = "#{fixture_file_path}/converted"
     Voyeur::Video.new( filename: valid_mpeg_file_path ).
-      convert(to: :ogv, output_path: output_path, output_filename: "supersexypants.webm")
-    File.exists?("#{output_path}/supersexypants.webm").should be_true
-    File.delete("#{output_path}/supersexypants.webm")
+      convert(to: :ogv, output_path: output_path, output_filename: "supersexypants")
+    File.exists?("#{output_path}/supersexypants.ogv").should be_true
+    File.delete("#{output_path}/supersexypants.ogv")
   end
 end
