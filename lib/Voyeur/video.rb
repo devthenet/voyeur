@@ -6,15 +6,14 @@ module Voyeur
     end
 
     def convert(options)
-      format = options[:to]
-      converter = Voyeur::VideoConverter.create(format: format)
-      converter.convert(video: self)
+      converter = Voyeur::VideoConverter.create(format: options[:to])
+      converter.convert(video: self,
+                        output_filename: options[:output_filename],
+                        output_path: options[:output_path])
     end
 
     def convert_to_html5
-      [:mp4, :ogv, :webm].each do |f|
-        convert(to: f)
-      end
+      [:mp4, :ogv, :webm].each { |f| convert(to: f) }
     end
   end
 end

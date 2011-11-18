@@ -38,6 +38,12 @@ describe Voyeur::Mp4Converter do
           result[:video].should == @converter.output_video
         end
 
+        it "should allow them to name the video" do
+          result = @converter.convert(video: @video)
+          result[:status].should == 0
+          result[:video].should == @converter.output_video
+        end
+
         it "should return stdout" do
           pending "why do we want this? this is returning ffmpeg version stuff"
           result = @converter.convert(video: @video)

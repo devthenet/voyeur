@@ -15,15 +15,25 @@ module Voyeur
     def convert(options)
       @input_video = options[:video]
       raise Voyeur::Exceptions::NoVideoPresent unless @input_video
-      @output_video = Video.new(filename: self.output_file_name(@input_video.filename))
+      output_filename = self.output_path( options[:output_path] )
+      @output_video = Video.new(filename: output_file(options[:output_path], options[:output_filename]))
       self.call_external_converter
     end
 
-    def output_file_name(input_file_name)
-      input_file_name.gsub(/\.[\w]+$/, "." + self.file_extension )
+    protected
+
+    def output_file(path, filename)
+      "#{output_path(path)}/#{output_filename(filename)}"
     end
 
-    protected
+    def output_path(output_path = nil)
+      output_path ? output_path : File.dirname(@input_video.filename)
+    end
+
+    def output_filename(input_filename = nil)
+      filename = input_filename.nil? ? @input_video.filename : input_filename
+      File.basename(filename, '.*') + ".#{self.file_extension}"
+    end
 
     def call_external_converter
       command = "ffmpeg -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}"

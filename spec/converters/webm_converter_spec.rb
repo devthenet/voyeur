@@ -18,10 +18,11 @@ describe Voyeur::WebmConverter do
 
       it "should raise an exception if no video is passed" do
         @video = nil
-        -> { @converter.convert(video: @video) }.should raise_error
+        -> { @converter.convert(video: @video) }.should raise_error Voyeur::Exceptions::NoVideoPresent
       end
 
       it "should name the video correctly" do
+        pending "no longer relevant"
         @converter.convert(video: @video)
         @converter.output_video.filename.should == "test_video.webm"
       end

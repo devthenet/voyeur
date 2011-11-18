@@ -22,6 +22,7 @@ describe Voyeur::OgvConverter do
       end
 
       it "should name the video correctly" do
+        pending "no longer relevant"
         @converter.convert(video: @video)
         @converter.output_video.filename.should == "test_video.ogv"
       end
