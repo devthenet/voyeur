@@ -1,19 +1,19 @@
 require 'spec_helper'
 
-describe Voyeur::WebmConverter do
+describe Voyeur::Ogv do
   context "New Video" do
     before :each do
-      @converter = Voyeur::VideoConverter.create(format: :webm)
-      @video = Voyeur::Video.new(filename: 'test_video.webm')
+      @converter = Voyeur::Converter.create(format: :ogv)
+      @video = Voyeur::Video.new(filename: 'test_video.ogv')
     end
 
     it "should use the correct factory" do
-      @converter.class.to_s.should == "Voyeur::WebmConverter"
+      @converter.class.to_s.should == "Voyeur::Ogv"
     end
 
     context "#convert_options" do
       it "default convert string" do
-        @converter.convert_options.should == "-b 1500k -vcodec libvpx -acodec libvorbis -ab 160000 -f webm -g 30"
+        @converter.convert_options.should == "-b 1500k -vcodec libtheora -acodec libvorbis -ab 160000 -g 30"
       end
 
       it "should raise an exception if no video is passed" do
@@ -30,10 +30,9 @@ describe Voyeur::WebmConverter do
 
   context "An invalid Video" do
     before :each do
-      @converter = Voyeur::VideoConverter.create(format: :webm)
+      @converter = Voyeur::Converter.create(format: :ogv)
       @video = Voyeur::Video.new(filename: 'test_video.mpeg')
     end
-
     context "File does not exist" do
       it "should return conversion status indicating failure" do
         result = @converter.convert(video: @video)
@@ -44,5 +43,4 @@ describe Voyeur::WebmConverter do
       end
     end
   end
-
 end

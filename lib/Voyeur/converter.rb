@@ -6,7 +6,7 @@ module Voyeur
 
     def self.create(options)
       constant = Voyeur
-      klass = "#{options[:format].capitalize}Converter"
+      klass = "#{options[:format].capitalize}"
       raise Voyeur::Exceptions::InvalidFormat unless constant.const_defined? klass
       klass = constant.const_get klass
       klass.new

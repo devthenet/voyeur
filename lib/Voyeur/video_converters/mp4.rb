@@ -1,5 +1,5 @@
 module Voyeur
-  class Mp4Converter < Converter
+  class Mp4 < Converter
 
     def file_extension
       "mp4"
