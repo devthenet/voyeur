@@ -1,5 +1,5 @@
 module Voyeur
-  class VideoConverter
+  class Converter
     attr_accessor :input_video
     attr_reader :output_video
     attr_reader :status

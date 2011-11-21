@@ -1,5 +1,5 @@
 module Voyeur
-  class WebmConverter < VideoConverter
+  class WebmConverter < Converter
 
     def file_extension
       "webm"

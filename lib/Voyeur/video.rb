@@ -6,7 +6,7 @@ module Voyeur
     end
 
     def convert(options)
-      converter = Voyeur::VideoConverter.create(format: options[:to])
+      converter = Voyeur::Converter.create(format: options[:to])
       converter.convert(video: self,
                         output_filename: options[:output_filename],
                         output_path: options[:output_path])

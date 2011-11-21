@@ -1,5 +1,5 @@
 module Voyeur
-  class OgvConverter < VideoConverter
+  class OgvConverter < Converter
 
     def file_extension
       "ogv"
