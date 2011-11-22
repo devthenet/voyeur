@@ -2,12 +2,12 @@
 
 ## Authors
 Peter Garbers
-    https://github.com/petergarbers
-    www.twitter.com/petergarbers
+<https://github.com/petergarbers>
+<www.twitter.com/petergarbers>
 
 Hendrik Louw
-    https://github.com/HendrikLouw
-    http://twitter.com/#!/hendrik_louw
+<https://github.com/HendrikLouw>
+<http://twitter.com/#!/hendrik_louw>
 
 ## Description
 Voyeur is a ruby library that will take your video files and convert
@@ -83,9 +83,9 @@ options
 ## Sources
 
 ### Links
-http://stackoverflow.com/questions/5487085/ffmpeg-covert-html-5-video-not-working
-http://johndyer.name/ffmpeg-settings-for-html5-codecs-h264mp4-theoraogg-vp8webm/
-http://rodrigopolo.com/ffmpeg/cheats.html
+<http://stackoverflow.com/questions/5487085/ffmpeg-covert-html-5-video-not-working>
+<http://johndyer.name/ffmpeg-settings-for-html5-codecs-h264mp4-theoraogg-vp8webm/>
+<http://rodrigopolo.com/ffmpeg/cheats.html>
 
 ### Conversion settings
 
