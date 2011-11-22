@@ -73,9 +73,12 @@ options
 
 ## Sources
 
-### Conversion settings
+### Links
 http://stackoverflow.com/questions/5487085/ffmpeg-covert-html-5-video-not-working
 http://johndyer.name/ffmpeg-settings-for-html5-codecs-h264mp4-theoraogg-vp8webm/
+http://rodrigopolo.com/ffmpeg/cheats.html
+
+### Conversion settings
 
 
     ffmpeg -i test.mpeg -b 1500k -vcodec libx264 -vpre slow -vpre baseline -g 30 test.mp4
@@ -83,4 +86,3 @@ http://johndyer.name/ffmpeg-settings-for-html5-codecs-h264mp4-theoraogg-vp8webm/
     ffmpeg -i test.mpeg -b 1500k -vcodec libtheora -acodec libvorbis -ab 160000 -g 30 test.ogv
 
 
-http://rodrigopolo.com/ffmpeg/cheats.html
