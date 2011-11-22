@@ -1,5 +1,14 @@
 # Voyeur
 
+## Authors
+Peter Garbers
+    https://github.com/petergarbers
+    www.twitter.com/petergarbers
+
+Hendrik Louw
+    https://github.com/HendrikLouw
+    http://twitter.com/#!/hendrik_louw
+
 ## Description
 Voyeur is a ruby library that will take your video files and convert
 them into one of the 3 formats. MP4, OGV and Webm with what I hope is
