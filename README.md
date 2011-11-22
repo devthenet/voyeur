@@ -2,8 +2,8 @@
 
 ## Authors
 Peter Garbers
-<https://github.com/petergarbers>.
-<www.twitter.com/petergarbers>.
+https://github.com/petergarbers
+www.twitter.com/petergarbers
 
 Hendrik Louw
 https://github.com/HendrikLouw
