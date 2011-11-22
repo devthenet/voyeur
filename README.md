@@ -37,8 +37,7 @@ them in the same folder as the parent.
 I have allowed the user to specify an output filename. (Note: if no
 output filename the file is just named after the original file):
 
-    Voyeur::Video.new( filename: path_to_file ).convert( to: :mp4,
-output_filename: "my_cool_video" )
+    Voyeur::Video.new( filename: path_to_file ).convert( to: :mp4, output_filename: "my_cool_video" )
 
 This will give you a converted video called "my_cool_video.mp4".
 
@@ -46,14 +45,15 @@ You can also convert to all with the following:
     Voyeur::Video.new( filename: path_to_file ).convert_to_html5( output_filename: "my_cool_video" )
 
 It is also possible to place the formatted video in a custom folder:
-    Voyeur::Video.new( filename: path_to_file ).convert( to: :mp4,
-output_path: "my/cool/file/path" )
+    Voyeur::Video.new( filename: path_to_file ).convert( to: :mp4, output_path: "my/cool/file/path" )
 
 or
+
     Voyeur::Video.new( filename: path_to_file ).convert_to_html5( output_path: "my/cool/file/path" )
 
 ## Extendibility
-    I've designed this in the hopes that others will be able to add
+
+I've designed this in the hopes that others will be able to add
 other formats / conversion options (haven't quite gone that far yet).
 Right now it's as simple as creating a file similar to this:
 
@@ -73,10 +73,10 @@ Right now it's as simple as creating a file similar to this:
 The two methods file_extension and convert options are mandatory.
 
 ## Todo
-  1) Spawn processes simultaniously so more than one video can be converted
+1) Spawn processes simultaniously so more than one video can be converted
 at once.
 
-  2) Add functionality so that users can use more specific convert
+2) Add functionality so that users can use more specific convert
 options
 
 
