@@ -13,10 +13,11 @@ module Voyeur
     end
 
     def convert_to_html5(options = nil)
+
       [:mp4, :ogv, :webm].each do |f|
-        convert(to: f,
-                output_path: options[:output_path],
-                output_filename: options[:output_filename])
+        options_hash = {to: f}
+        options_hash.merge!(options) if options
+        convert(options_hash)
       end
     end
   end
