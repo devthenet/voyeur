@@ -69,4 +69,10 @@ describe Voyeur::Video do
     File.exists?("#{output_path}/supersexypants.webm").should be_true
     File.delete("#{output_path}/supersexypants.webm")
   end
+
+  it "should not allow the user to specify a folder that doesn't exist" do
+    output_path = "#{fixture_file_path}/icecream"
+    -> { Voyeur::Video.new( filename: valid_mpeg_file_path ).
+      convert(to: :ogv, output_path: output_path) }.should raise_error Voyeur::Exceptions::InvalidLocation
+  end
 end
