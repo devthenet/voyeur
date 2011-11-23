@@ -1,17 +1,13 @@
 # Voyeur
 
 ## Authors
-Peter Garbers
+#### Peter Garbers  
+* https://github.com/petergarbers      
+* http://twitter.com/petergarbers
 
-    https://github.com/petergarbers
-    
-    www.twitter.com/petergarbers
-
-Hendrik Louw
-
-    https://github.com/HendrikLouw
-    
-    http://twitter.com/#!/hendrik_louw
+#### Hendrik Louw
+* https://github.com/HendrikLouw  
+* http://twitter.com/hendrik_louw
 
 ## Description
 Voyeur is a ruby library that will take your video files and convert
@@ -65,28 +61,27 @@ or
 I've designed this in the hopes that others will be able to add
 other formats / conversion options (haven't quite gone that far yet).
 Right now it's as simple as creating a file similar to this:
-```ruby
-module Voyeur
-  class Mp4 < Converter
 
-    def file_extension
-      "mp4"
-    end
+  module Voyeur
+    class Mp4 < Converter
 
-    def convert_options
-      "-b 1500k -vcodec libx264 -g 30"
+      def file_extension
+        "mp4"
+      end
+
+      def convert_options
+        "-b 1500k -vcodec libx264 -g 30"
+      end
     end
   end
-end
-```
+
 
 The two methods file_extension and convert options are mandatory.
 
 ## Todo
-1) Spawn processes simultaniously so more than one video can be converted
+1. Spawn processes simultaniously so more than one video can be converted
 at once.
-
-2) Add functionality so that users can use more specific convert
+2. Add functionality so that users can use more specific convert
 options
 
 
