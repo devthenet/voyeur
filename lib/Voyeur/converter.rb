@@ -27,6 +27,7 @@ module Voyeur
     end
 
     def output_path(output_path = nil)
+      raise Voyeur::Exceptions::InvalidLocation if output_path && !File.directory?(output_path)
       output_path ? output_path : File.dirname(@input_video.filename)
     end
 
