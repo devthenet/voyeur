@@ -57,4 +57,16 @@ describe Voyeur::Video do
     File.exists?("#{output_path}/supersexypants.ogv").should be_true
     File.delete("#{output_path}/supersexypants.ogv")
   end
+
+  it "should allow a user to specify a video path and filename when converting all formats" do
+    output_path = "#{fixture_file_path}/converted"
+    Voyeur::Video.new( filename: valid_mpeg_file_path ).
+      convert_to_html5(output_path: output_path, output_filename: "supersexypants")
+    File.exists?("#{output_path}/supersexypants.ogv").should be_true
+    File.delete("#{output_path}/supersexypants.ogv")
+    File.exists?("#{output_path}/supersexypants.mp4").should be_true
+    File.delete("#{output_path}/supersexypants.mp4")
+    File.exists?("#{output_path}/supersexypants.webm").should be_true
+    File.delete("#{output_path}/supersexypants.webm")
+  end
 end

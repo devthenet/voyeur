@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["peter.garbers@gmail.com", "hflouw@gmail.com"]
   s.homepage    = ""
   s.summary     = %q{Ruby library to convert common video formats to HTML5 formats}
-  s.description = %q{TODO: Write full description for teh Voyeur}
+  s.description = %q{A ruby library to convert videos into common html5 formats}
 
   s.rubyforge_project = "Voyeur"
 
@@ -20,4 +20,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec"
   s.add_dependency "open4"
+  s.add_development_dependency "ruby-debug19"
 end
