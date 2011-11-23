@@ -6,9 +6,11 @@ it's like falling out of a tree then climbing back.
 ## Installation
 The gem is easily installed by including the following line in your
 Gemfile (if you role that way)
+
     gem 'voyeur'
     
  or on the command line 
+ 
     gem install voyeur
     require 'voyeur'
     
