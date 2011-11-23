@@ -16,7 +16,10 @@ Gemfile (if you role that way)
     
 ## Setup
 This gem requires ffmpeg to be installed. If you require assistance
-there is a basic guide included in the [wiki page](https://github.com/devthenet/Voyeur/wiki/Installing-ffmpeg-%28Ubuntu%29). Feel free to add more!
+there is a basic guide included in the [wiki page](https://github.com/devthenet/Voyeur/wiki/Installing-ffmpeg-%28Ubuntu%29). Feel free to add more!  
+You can also try out automated [setup scripts](https://github.com/devthenet/ffmpeg_setup) (at the moment we only have for ubuntu):
+
+
 
 
 ## Usage
