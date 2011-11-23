@@ -1,27 +1,21 @@
 # Voyeur
-
-## Authors
-#### Peter Garbers  
-* https://github.com/petergarbers      
-* http://twitter.com/petergarbers
-
-#### Hendrik Louw
-* https://github.com/HendrikLouw  
-* http://twitter.com/hendrik_louw
-
-## Description
 Voyeur is a ruby library that will take your video files and convert
-them into one of the 3 formats. MP4, OGV and Webm with what I hope is
-an easy to use API
+them to common HTML5 formats exposing an easy to use API. Seriously
+it's like falling out of a tree then climbing back.
 
 ## Installation
 The gem is easily installed by including the following line in your
-Gemfile.
+Gemfile (if you role that way)
     gem 'voyeur'
-
+    
+ or on the command line 
+    gem install voyeur
+    require 'voyeur'
+    
 ## Setup
 This gem requires ffmpeg to be installed. If you require assistance
-there is a basic guide included in the wiki page. Feel free to add more!
+there is a basic guide included in the [wiki page](https://github.com/devthenet/Voyeur/wiki/Installing-ffmpeg-%28Ubuntu%29). Feel free to add more!
+
 
 ## Usage
 Simple conversions may be done by simply:
@@ -84,6 +78,14 @@ at once.
 2. Add functionality so that users can use more specific convert
 options
 
+## Authors
+#### Peter Garbers  
+* https://github.com/petergarbers      
+* http://twitter.com/petergarbers
+
+#### Hendrik Louw
+* https://github.com/HendrikLouw  
+* http://twitter.com/hendrik_louw
 
 ## Sources
 
