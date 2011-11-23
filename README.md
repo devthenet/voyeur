@@ -62,18 +62,18 @@ I've designed this in the hopes that others will be able to add
 other formats / conversion options (haven't quite gone that far yet).
 Right now it's as simple as creating a file similar to this:
 
-  module Voyeur
-    class Mp4 < Converter
+    module Voyeur
+      class Mp4 < Converter
 
-      def file_extension
-        "mp4"
-      end
+        def file_extension
+          "mp4"
+        end
 
-      def convert_options
-        "-b 1500k -vcodec libx264 -g 30"
+        def convert_options
+          "-b 1500k -vcodec libx264 -g 30"
+        end
       end
     end
-  end
 
 
 The two methods file_extension and convert options are mandatory.
@@ -88,8 +88,6 @@ options
 ## Sources
 
 ### Links
-http://stackoverflow.com/questions/5487085/ffmpeg-covert-html-5-video-not-working
-
-http://johndyer.name/ffmpeg-settings-for-html5-codecs-h264mp4-theoraogg-vp8webm/
-
-http://rodrigopolo.com/ffmpeg/cheats.html
+* http://stackoverflow.com/questions/5487085/ffmpeg-covert-html-5-video-not-working
+* http://johndyer.name/ffmpeg-settings-for-html5-codecs-h264mp4-theoraogg-vp8webm/
+* http://rodrigopolo.com/ffmpeg/cheats.html
