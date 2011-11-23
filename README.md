@@ -25,11 +25,14 @@ there is a basic guide included in the wiki page. Feel free to add more!
 
 ## Usage
 Simple conversions may be done by simply:
+
     Voyeur::Video.new( filename: path_to_file ).convert( to: :mp4 )
+    
 This will convert the video into Mp4 and save it in the same directory
 as the original video.
 
 Alternatively you can convert to all 3 types at once:
+
     Voyeur::Video.new( filename: path_to_file ).convert_to_html5
 This will convert the video into 3 formats. Mp4, Ogv and Webm and place
 them in the same folder as the parent.
@@ -42,9 +45,11 @@ output filename the file is just named after the original file):
 This will give you a converted video called "my_cool_video.mp4".
 
 You can also convert to all with the following:
+
     Voyeur::Video.new( filename: path_to_file ).convert_to_html5( output_filename: "my_cool_video" )
 
 It is also possible to place the formatted video in a custom folder:
+
     Voyeur::Video.new( filename: path_to_file ).convert( to: :mp4, output_path: "my/cool/file/path" )
 
 or
@@ -84,14 +89,7 @@ options
 
 ### Links
 http://stackoverflow.com/questions/5487085/ffmpeg-covert-html-5-video-not-working
+
 http://johndyer.name/ffmpeg-settings-for-html5-codecs-h264mp4-theoraogg-vp8webm/
+
 http://rodrigopolo.com/ffmpeg/cheats.html
-
-### Conversion settings
-
-
-    ffmpeg -i test.mpeg -b 1500k -vcodec libx264 -vpre slow -vpre baseline -g 30 test.mp4
-    ffmpeg -i test.mpeg -b 1500k -vcodec libvpx -acodec libvorbis -ab 160000 -f webm -g 30 test.webm
-    ffmpeg -i test.mpeg -b 1500k -vcodec libtheora -acodec libvorbis -ab 160000 -g 30 test.ogv
-
-
