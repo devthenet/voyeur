@@ -2,11 +2,15 @@
 
 ## Authors
 Peter Garbers
+
     https://github.com/petergarbers
+    
     www.twitter.com/petergarbers
 
 Hendrik Louw
+
     https://github.com/HendrikLouw
+    
     http://twitter.com/#!/hendrik_louw
 
 ## Description
