@@ -1,31 +1,26 @@
 # Voyeur
-
-## Authors
-Peter Garbers
-
-    https://github.com/petergarbers
-    
-    www.twitter.com/petergarbers
-
-Hendrik Louw
-
-    https://github.com/HendrikLouw
-    
-    http://twitter.com/#!/hendrik_louw
-
-## Description
 Voyeur is a ruby library that will take your video files and convert
-them into one of the 3 formats. MP4, OGV and Webm with what I hope is
-an easy to use API
+them to common HTML5 formats exposing an easy to use API. Seriously
+it's like falling out of a tree then climbing back.
 
 ## Installation
 The gem is easily installed by including the following line in your
-Gemfile.
-    gem 'voyeur'
+Gemfile (if you role that way)
 
+    gem 'voyeur'
+    
+ or on the command line 
+ 
+    gem install voyeur
+    require 'voyeur'
+    
 ## Setup
 This gem requires ffmpeg to be installed. If you require assistance
-there is a basic guide included in the wiki page. Feel free to add more!
+there is a basic guide included in the [wiki page](https://github.com/devthenet/Voyeur/wiki/Installing-ffmpeg-%28Ubuntu%29). Feel free to add more!  
+You can also try out automated [setup scripts](https://github.com/devthenet/ffmpeg_setup) (at the moment we only have for ubuntu):
+
+
+
 
 ## Usage
 Simple conversions may be done by simply:
@@ -79,21 +74,27 @@ Right now it's as simple as creating a file similar to this:
       end
     end
 
+
 The two methods file_extension and convert options are mandatory.
 
 ## Todo
-1) Spawn processes simultaniously so more than one video can be converted
+1. Spawn processes simultaniously so more than one video can be converted
 at once.
-
-2) Add functionality so that users can use more specific convert
+2. Add functionality so that users can use more specific convert
 options
 
+## Authors
+#### Peter Garbers  
+* https://github.com/petergarbers      
+* http://twitter.com/petergarbers
+
+#### Hendrik Louw
+* https://github.com/HendrikLouw  
+* http://twitter.com/hendrik_louw
 
 ## Sources
 
 ### Links
-http://stackoverflow.com/questions/5487085/ffmpeg-covert-html-5-video-not-working
-
-http://johndyer.name/ffmpeg-settings-for-html5-codecs-h264mp4-theoraogg-vp8webm/
-
-http://rodrigopolo.com/ffmpeg/cheats.html
+* http://stackoverflow.com/questions/5487085/ffmpeg-covert-html-5-video-not-working
+* http://johndyer.name/ffmpeg-settings-for-html5-codecs-h264mp4-theoraogg-vp8webm/
+* http://rodrigopolo.com/ffmpeg/cheats.html
