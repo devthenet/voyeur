@@ -3,11 +3,11 @@ $:.push File.expand_path("../lib", __FILE__)
 require "Voyeur/version"
 
 Gem::Specification.new do |s|
-  s.name        = "Voyeur"
+  s.name        = "voyeur"
   s.version     = Voyeur::VERSION
   s.authors     = ["Peter Garbers", "Hendrik F. Louw"]
   s.email       = ["peter.garbers@gmail.com", "hflouw@gmail.com"]
-  s.homepage    = "http://devthenet.github.com/"
+  s.homepage    = "http://devthenet.github.com/Voyeur"
   s.summary     = %q{Ruby library to convert common video formats to HTML5 formats}
   s.description = %q{A ruby library to convert videos into common html5 formats}
 
