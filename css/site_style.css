@@ -1,20 +1,57 @@
 body {
   margin-top: 1.0em;
-  background-color: #fff;
+  background-color: #333;
   font-family: Helvetica, Arial, FreeSans, san-serif;
-  color: #666;
+  color: #fff;
 }
 #container {
   margin: 0 auto;
   width: 700px;
 }
-h1 { font-size: 3.8em; color: #bc975e; margin-bottom: 3px; }
-h1 .small { font-size: 0.4em; }
-h1 a { text-decoration: none }
-h2 { font-size: 1.5em; color: #bc975e; }
-h3 { text-align: center; color: #bc975e; }
-a { color: #bc975e; }
-.description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+h1 {
+  font-size: 3.8em; 
+  color: #FFA4EB; 
+  margin-bottom: 3px; 
+}
+h1 .big {
+  display: block;
+  float: left;
+  padding-left: 10px;
+  padding-top: 30px;
+    color: #FFA4EB;
+}
+h1 .small { 
+  font-size: 0.4em; 
+  display: block;
+  float: left;
+  padding-left: 10px;
+  padding-top:  65px;
+    color: #FFA4EB; 
+}
+h1 img {
+  display: block;
+  float: left;
+}
+h1 a { 
+  color: #A4DBFF;
+  text-decoration: none;
+  
+}
+h2 { 
+  font-size: 1.5em; 
+  color: #FFA4EB; 
+}
+h3 { 
+  text-align: center;
+  color:  #A4DBFF;
+}
+a { color: #A4DBFF; }
+.description {
+  font-size: 1.2em; 
+  margin-bottom: 30px; 
+  margin-top: 30px; 
+  font-style: italic;
+}
 .download { float: right; }
 pre { background: #000; color: #fff; padding: 15px;}
 hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
