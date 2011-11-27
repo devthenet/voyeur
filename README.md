@@ -8,25 +8,22 @@ The gem is easily installed by including the following line in your
 Gemfile (if you role that way)
 
     gem 'voyeur'
-    
- or on the command line 
- 
+
+ or on the command line
+
     gem install voyeur
     require 'voyeur'
-    
+
 ## Setup
 This gem requires ffmpeg to be installed. If you require assistance
-there is a basic guide included in the [wiki page](https://github.com/devthenet/Voyeur/wiki/Installing-ffmpeg-%28Ubuntu%29). Feel free to add more!  
+there is a basic guide included in the [wiki page](https://github.com/devthenet/Voyeur/wiki/Installing-ffmpeg-%28Ubuntu%29). Feel free to add more!
 You can also try out automated [setup scripts](https://github.com/devthenet/ffmpeg_setup) (at the moment we only have for ubuntu):
-
-
-
 
 ## Usage
 Simple conversions may be done by simply:
 
     Voyeur::Video.new( filename: path_to_file ).convert( to: :mp4 )
-    
+
 This will convert the video into Mp4 and save it in the same directory
 as the original video.
 
@@ -84,13 +81,25 @@ at once.
 options
 
 ## Authors
-#### Peter Garbers  
-* https://github.com/petergarbers      
+#### Peter Garbers
+* https://github.com/petergarbers
 * http://twitter.com/petergarbers
 
 #### Hendrik Louw
-* https://github.com/HendrikLouw  
+* https://github.com/HendrikLouw
 * http://twitter.com/hendrik_louw
+
+## License
+License
+
+Copyright © 2011 Peter Garbers and Hendrik Louw
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 
 ## Sources
 
