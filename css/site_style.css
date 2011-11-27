@@ -1,10 +1,10 @@
 body {
   margin-top: 1.0em;
-  background-color: #333;
   font-family: Helvetica, Arial, FreeSans, san-serif;
   color: #fff;
+  background: url(/images/background.jpg) #4e4b4a;
 }
-#container {
+.container {
   margin: 0 auto;
   width: 700px;
 }
@@ -61,4 +61,22 @@ hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
   width: 350px;
   text-align: center;
 }
+.we-are-dev-the-net {
+  padding-top: 50px;
+
+}
+.we-are-dev-the-net h2 {
+  float: left;
+  color:  #F3F6CD;
+  
+  padding-top: 95px;
+  padding-right: 10px;
+  font-size: 50px;
+}
+.we-are-dev-the-net img {
+  float: left;
+}
+
+
+
 .footer { text-align:center; padding-top:30px; font-style: italic; }
