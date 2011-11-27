@@ -1,12 +1,17 @@
 body {
+  margin: 0;
+  padding: 0;
   margin-top: 1.0em;
   font-family: Helvetica, Arial, FreeSans, san-serif;
   color: #fff;
-  background: url(/images/background.jpg) #4e4b4a;
+  background: url(http://devthenet.github.com/voyeur/images/background.jpg) #4e4b4a;
 }
 .container {
   margin: 0 auto;
   width: 700px;
+  background-color:  rgba(255,255,255, 0.1);
+  padding: 50px;
+  padding-top: 10px;
 }
 h1 {
   font-size: 3.8em; 
@@ -14,6 +19,7 @@ h1 {
   margin-bottom: 3px; 
 }
 h1 .big {
+  text-shadow: 0px -1px 0px #000;
   display: block;
   float: left;
   padding-left: 10px;
@@ -21,6 +27,7 @@ h1 .big {
     color: #FFA4EB;
 }
 h1 .small { 
+  text-shadow: 0px -1px 0px #000;
   font-size: 0.4em; 
   display: block;
   float: left;
@@ -62,19 +69,31 @@ hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
   text-align: center;
 }
 .we-are-dev-the-net {
+  width: 100%;
   padding-top: 50px;
-
+  padding-bottom: 0px;
+  margin: 0;
+  background-color:  rgba(0,0,0, 0.3);
+}
+.we-are-dev-the-net .container {
+  background-color: transparent;
+  padding-bottom: 10px;
+  padding-top: 0;
 }
 .we-are-dev-the-net h2 {
   float: left;
+  display: block;
   color:  #F3F6CD;
   
-  padding-top: 95px;
+  margin-top: -10px;
   padding-right: 10px;
   font-size: 50px;
 }
 .we-are-dev-the-net img {
-  float: left;
+  margin-top: -100px;
+  margin-right: -50px;
+  display: block;
+  float: right;
 }
 
 
