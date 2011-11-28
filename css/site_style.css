@@ -11,7 +11,7 @@ body {
   width: 700px;
   background-color:  rgba(255,255,255, 0.1);
   padding: 50px;
-  padding-top: 10px;
+  padding-top: 0px;
 }
 h1 {
   font-size: 3.8em; 
