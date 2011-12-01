@@ -6,7 +6,7 @@ module Voyeur
 
     def self.create(options)
       constant = Voyeur
-      klass = "#{options[:format].capitalize}"
+      klass = options[:format].to_s.capitalize
       raise Voyeur::Exceptions::InvalidFormat unless constant.const_defined? klass
       klass = constant.const_get klass
       klass.new
@@ -16,7 +16,7 @@ module Voyeur
       @input_video = options[:video]
       raise Voyeur::Exceptions::NoVideoPresent unless @input_video
       output_filename = self.output_path( options[:output_path] )
-      @output_video = Video.new(filename: output_file(options[:output_path], options[:output_filename]))
+      @output_video = Video.new(:filename => output_file(options[:output_path], options[:output_filename]))
       self.call_external_converter
     end
 
@@ -47,8 +47,8 @@ module Voyeur
 
       error_message = err.split('\n').last
 
-      @status = { status: status.exitstatus, stdout: out, stderr: err,
-        error_message: error_message, video: @output_video }
+      @status = { :status => status.exitstatus, :stdout => out, :stderr => err,
+        :error_message => error_message, :video => @output_video }
       return @status
     end
   end

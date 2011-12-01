@@ -1,4 +1,4 @@
-# Voyeur
+# Voyeur (for ruby 1.8.x)
 Voyeur is a ruby library that will take your video files and convert
 them to common HTML5 formats exposing an easy to use API. Seriously
 it's like falling out of a tree then climbing back.
