@@ -5,7 +5,8 @@ it's like falling out of a tree then climbing back.
 
 ## Installation
 The gem is easily installed by including the following line in your
-Gemfile (if you role that way). Currently only ruby-1.9.x only
+Gemfile (if you role that way). This version is compatible with
+ruby-1.9.x only, however there is a branch for ruby-1.8.7
 
     gem 'voyeur'
 
