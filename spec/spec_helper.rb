@@ -1,5 +1,5 @@
 require 'rspec'
-require 'Voyeur'
+require 'voyeur'
 require 'spec_helpers/video_file_spec_helper'
 
 RSpec.configure do |config|
