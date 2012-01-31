@@ -9,6 +9,8 @@ pkg/*
 bin
 test_data/*
 *.mp4
+*.webm
+*.3gp
 *.swp
 *.swo
 *.box
