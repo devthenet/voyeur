@@ -37,10 +37,15 @@ module Voyeur
     end
 
     def call_external_converter
-      command = "ffmpeg -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}"
-      out, err = ""
+      # Added -y option to force overwrite
+      command = "ffmpeg -y -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}"
+      output, out, err = ""
 
       status = Open4::popen4(command) do |pid, stdin, stdout, stderr|
+        # Don't know why needs that to exit process in certain files, like big mp4
+        stderr.each("r") do |line|
+          output << line
+        end
         out = stdout.read.strip
         err = stderr.read.strip
       end
