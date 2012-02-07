@@ -37,7 +37,7 @@ module Voyeur
     end
 
     def call_external_converter
-      command = "ffmpeg -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}"
+      command = "ffmpeg -y -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}"
       out, err = ""
 
       status = Open4::popen4(command) do |pid, stdin, stdout, stderr|
