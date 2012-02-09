@@ -1,5 +1,5 @@
 require "Voyeur/version"
-require "Voyeur/video"
+require "Voyeur/media"
 require "Voyeur/exceptions"
 require "Voyeur/converter"
 
