@@ -1,35 +1,35 @@
 require 'spec_helper'
 
-describe Voyeur::Video do
+describe Voyeur::Media do
   it 'should create a new video object from a filename' do
     video_input_name = 'test_file.mpeg'
-    video = Voyeur::Video.new filename: video_input_name
+    video = Voyeur::Media.new filename: video_input_name
     video.filename.should == video_input_name
   end
 
   it "should convert a video to ogv" do
-    Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: :ogv)
+    Voyeur::Media.new( filename: valid_mpeg_file_path ).convert(to: :ogv)
     ogv_file = valid_mpeg_file_path.gsub(/mpeg/, "ogv")
     File.should exist(ogv_file)
     File.delete(ogv_file)
   end
 
   it "should convert a video to mp4" do
-    Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: :mp4)
+    Voyeur::Media.new( filename: valid_mpeg_file_path ).convert(to: :mp4)
     mp4_file = valid_mpeg_file_path.gsub(/mpeg/, "mp4")
     File.should exist(mp4_file)
     File.delete(mp4_file)
   end
 
   it "should convert a video to webm" do
-    Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: :webm)
+    Voyeur::Media.new( filename: valid_mpeg_file_path ).convert(to: :webm)
     webm_file = valid_mpeg_file_path.gsub(/mpeg/, "webm")
     File.should exist(webm_file)
     File.delete(webm_file)
   end
 
   it "should convert a video to all HTML5 video formats" do
-    Voyeur::Video.new( filename: valid_mpeg_file_path ).convert_to_html5
+    Voyeur::Media.new( filename: valid_mpeg_file_path ).convert_to_html5
 
     mp4_file = valid_mpeg_file_path.gsub(/mpeg/, "mp4")
     File.should exist(mp4_file)
@@ -45,7 +45,7 @@ describe Voyeur::Video do
   end
 
   it "should allow the user to name the video" do
-    Voyeur::Video.new( filename: valid_mpeg_file_path ).
+    Voyeur::Media.new( filename: valid_mpeg_file_path ).
       convert(to: :webm, output_filename: "sexypants")
     webm_file = "#{fixture_file_path}/sexypants.webm"
     File.should exist(webm_file)
@@ -54,7 +54,7 @@ describe Voyeur::Video do
 
   it "should allow the user to specify a video path" do
     output_path = "#{fixture_file_path}/converted"
-    Voyeur::Video.new( filename: valid_mpeg_file_path ).
+    Voyeur::Media.new( filename: valid_mpeg_file_path ).
       convert(to: :ogv, output_path: output_path)
     test_file = "#{output_path}/test.ogv"
     File.should exist(test_file)
@@ -63,7 +63,7 @@ describe Voyeur::Video do
 
   it "should allow a user to specify a video path and filename" do
     output_path = "#{fixture_file_path}/converted"
-    Voyeur::Video.new( filename: valid_mpeg_file_path ).
+    Voyeur::Media.new( filename: valid_mpeg_file_path ).
       convert(to: :ogv, output_path: output_path, output_filename: "supersexypants")
     supersexypants_file = "#{output_path}/supersexypants.ogv"
     File.should exist(supersexypants_file)
@@ -71,7 +71,7 @@ describe Voyeur::Video do
   end
 
   it "should allow user to convert given to a format given a class name" do
-    Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: Voyeur::Webm)
+    Voyeur::Media.new( filename: valid_mpeg_file_path ).convert(to: Voyeur::Webm)
     webm_file = valid_mpeg_file_path.gsub(/mpeg/, "webm")
     File.should exist(webm_file).should be_true
     File.delete(webm_file)
@@ -79,7 +79,7 @@ describe Voyeur::Video do
 
   it "should allow a user to specify a video path and filename when converting all formats" do
     output_path = "#{fixture_file_path}/converted"
-    Voyeur::Video.new( filename: valid_mpeg_file_path ).
+    Voyeur::Media.new( filename: valid_mpeg_file_path ).
       convert_to_html5(output_path: output_path, output_filename: "supersexypants")
     ogv_file = "#{output_path}/supersexypants.ogv"
     File.should exist(ogv_file)
@@ -96,7 +96,7 @@ describe Voyeur::Video do
 
   it "should not allow the user to specify a folder that doesn't exist" do
     output_path = "#{fixture_file_path}/icecream"
-    -> { Voyeur::Video.new( filename: valid_mpeg_file_path ).
+    -> { Voyeur::Media.new( filename: valid_mpeg_file_path ).
       convert(to: :ogv, output_path: output_path) }.should raise_error Voyeur::Exceptions::InvalidLocation
   end
 end

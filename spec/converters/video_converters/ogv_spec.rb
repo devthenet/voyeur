@@ -4,7 +4,7 @@ describe Voyeur::Ogv do
   context "New Video" do
     before :each do
       @converter = Voyeur::Converter.create(format: :ogv)
-      @video = Voyeur::Video.new(filename: 'test_video.ogv')
+      @media = Voyeur::Media.new(filename: 'test_media.ogv')
     end
 
     it "should use the correct factory" do
@@ -16,14 +16,14 @@ describe Voyeur::Ogv do
         @converter.convert_options.should == "-b 1500k -vcodec libtheora -acodec libvorbis -ab 160000 -g 30"
       end
 
-      it "should raise an exception if no video is passed" do
-        @video = nil
-        -> { @converter.convert(video: @video) }.should raise_error Voyeur::Exceptions::NoVideoPresent
+      it "should raise an exception if no media is passed" do
+        @media = nil
+        -> { @converter.convert(media: @media) }.should raise_error Voyeur::Exceptions::NoMediaPresent
       end
 
-      it "should return a video" do
-        @converter.convert(video: @video)
-        @converter.input_video.should == @video
+      it "should return a media" do
+        @converter.convert(media: @media)
+        @converter.input_media.should == @media
       end
     end
   end
@@ -31,14 +31,14 @@ describe Voyeur::Ogv do
   context "An invalid Video" do
     before :each do
       @converter = Voyeur::Converter.create(format: :ogv)
-      @video = Voyeur::Video.new(filename: 'test_video.mpeg')
+      @media = Voyeur::Media.new(filename: 'test_media.mpeg')
     end
     context "File does not exist" do
       it "should return conversion status indicating failure" do
-        result = @converter.convert(video: @video)
+        result = @converter.convert(media: @media)
         result[:status].should == 1
-        result[:video].should == @converter.output_video
-        result[:error_message].should match(/test_video.mpeg: No such file or directory/)
+        result[:media].should == @converter.output_media
+        result[:error_message].should match(/test_media.mpeg: No such file or directory/)
         result[:stderr].nil?.should == false
       end
     end

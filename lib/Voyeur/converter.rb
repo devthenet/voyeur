@@ -1,7 +1,7 @@
 module Voyeur
   class Converter
-    attr_accessor :input_video
-    attr_reader :output_video
+    attr_accessor :input_media
+    attr_reader :output_media
     attr_reader :status
 
     def self.create(options)
@@ -17,10 +17,10 @@ module Voyeur
     end
 
     def convert(options)
-      @input_video = options[:video]
-      raise Voyeur::Exceptions::NoVideoPresent unless @input_video
+      @input_media = options[:media]
+      raise Voyeur::Exceptions::NoMediaPresent unless @input_media
       output_filename = self.output_path( options[:output_path] )
-      @output_video = Video.new(filename: output_file(options[:output_path], options[:output_filename]))
+      @output_media = Media.new(filename: output_file(options[:output_path], options[:output_filename]))
       self.call_external_converter
     end
 
@@ -32,11 +32,11 @@ module Voyeur
 
     def output_path(output_path = nil)
       raise Voyeur::Exceptions::InvalidLocation if output_path && !File.directory?(output_path)
-      output_path ? output_path : File.dirname(@input_video.filename)
+      output_path ? output_path : File.dirname(@input_media.filename)
     end
 
     def output_filename(input_filename = nil)
-      filename = input_filename.nil? ? @input_video.filename : input_filename
+      filename = input_filename.nil? ? @input_media.filename : input_filename
       File.basename(filename, '.*') + ".#{self.file_extension}"
     end
 
@@ -57,7 +57,7 @@ module Voyeur
       error_message = err.split('\n').last
 
       @status = { status: status.exitstatus, stdout: out, stderr: err,
-        error_message: error_message, video: @output_video }
+        error_message: error_message, media: @output_media }
       return @status
     end
   end

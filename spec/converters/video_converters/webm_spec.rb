@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe Voyeur::Webm do
-  context "New Video" do
+  context "New Media" do
     before :each do
       @converter = Voyeur::Converter.create(format: :webm)
-      @video = Voyeur::Video.new(filename: 'test_video.webm')
+      @media = Voyeur::Media.new(filename: 'test_media.webm')
     end
 
     it "should use the correct factory" do
@@ -16,30 +16,30 @@ describe Voyeur::Webm do
         @converter.convert_options.should == "-b 1500k -vcodec libvpx -acodec libvorbis -ab 160000 -f webm -g 30"
       end
 
-      it "should raise an exception if no video is passed" do
-        @video = nil
-        -> { @converter.convert(video: @video) }.should raise_error Voyeur::Exceptions::NoVideoPresent
+      it "should raise an exception if no media is passed" do
+        @media = nil
+        -> { @converter.convert(media: @media) }.should raise_error Voyeur::Exceptions::NoMediaPresent
       end
 
-      it "should return a video" do
-        @converter.convert(video: @video)
-        @converter.input_video.should == @video
+      it "should return a media" do
+        @converter.convert(media: @media)
+        @converter.input_media.should == @media
       end
     end
   end
 
-  context "An invalid Video" do
+  context "An invalid Media" do
     before :each do
       @converter = Voyeur::Converter.create(format: :webm)
-      @video = Voyeur::Video.new(filename: 'test_video.mpeg')
+      @media = Voyeur::Media.new(filename: 'test_media.mpeg')
     end
 
     context "File does not exist" do
       it "should return conversion status indicating failure" do
-        result = @converter.convert(video: @video)
+        result = @converter.convert(media: @media)
         result[:status].should == 1
-        result[:video].should == @converter.output_video
-        result[:error_message].should match(/test_video.mpeg: No such file or directory/)
+        result[:media].should == @converter.output_media
+        result[:error_message].should match(/test_media.mpeg: No such file or directory/)
         result[:stderr].nil?.should == false
       end
     end
