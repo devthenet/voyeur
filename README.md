@@ -1,5 +1,5 @@
 # Voyeur
-Voyeur is a ruby library that will take your video files and convert
+Voyeur is a ruby library that will take your video and audio files and convert
 them to common HTML5 formats exposing an easy to use API. Seriously
 it's like falling out of a tree then climbing back.
 
@@ -23,35 +23,41 @@ You can also try out automated [setup scripts](https://github.com/devthenet/ffmp
 ## Usage
 Simple conversions may be done by simply:
 
-    Voyeur::Video.new( filename: path_to_file ).convert( to: :mp4 )
+    Voyeur::Media.new( filename: path_to_file ).convert( to: :mp4 )
 
 This will convert the video into Mp4 and save it in the same directory
 as the original video.
 
+This will also work for audio using the same API by simply:
+
+    Voyeur::Media.new( filename: path_to_file ).convert( to: :acc )
+
+This will convert the sound file into acc and save it in the same directory as the original video
+
 Alternatively you can convert to all 3 types at once:
 
-    Voyeur::Video.new( filename: path_to_file ).convert_to_html5
+    Voyeur::Media.new( filename: path_to_file ).convert_to_html5
 This will convert the video into 3 formats. Mp4, Ogv and Webm and place
 them in the same folder as the parent.
 
 I have allowed the user to specify an output filename. (Note: if no
 output filename the file is just named after the original file):
 
-    Voyeur::Video.new( filename: path_to_file ).convert( to: :mp4, output_filename: "my_cool_video" )
+    Voyeur::Media.new( filename: path_to_file ).convert( to: :mp4, output_filename: "my_cool_video" )
 
 This will give you a converted video called "my_cool_video.mp4".
 
 You can also convert to all with the following:
 
-    Voyeur::Video.new( filename: path_to_file ).convert_to_html5( output_filename: "my_cool_video" )
+    Voyeur::Media.new( filename: path_to_file ).convert_to_html5( output_filename: "my_cool_video" )
 
 It is also possible to place the formatted video in a custom folder:
 
-    Voyeur::Video.new( filename: path_to_file ).convert( to: :mp4, output_path: "my/cool/file/path" )
+    Voyeur::Media.new( filename: path_to_file ).convert( to: :mp4, output_path: "my/cool/file/path" )
 
 or
 
-    Voyeur::Video.new( filename: path_to_file ).convert_to_html5( output_path: "my/cool/file/path" )
+    Voyeur::Media.new( filename: path_to_file ).convert_to_html5( output_path: "my/cool/file/path" )
 
 ## Extendibility
 
