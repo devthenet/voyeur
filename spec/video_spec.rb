@@ -35,6 +35,12 @@ describe Voyeur::Video do
     File.delete(valid_mpeg_file_path.gsub(/mpeg/, "webm"))
   end
 
+  it "should allow user to convert given to a format given a class name" do
+    Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: Voyeur::Webm)
+    File.exist?(valid_mpeg_file_path.gsub(/mpeg/, "webm")).should be_true
+    File.delete(valid_mpeg_file_path.gsub(/mpeg/, "webm"))
+  end
+
   it "should allow the user to name the video" do
     Voyeur::Video.new( filename: valid_mpeg_file_path ).
       convert(to: :webm, output_filename: "sexypants")
