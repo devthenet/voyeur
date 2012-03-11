@@ -9,71 +9,89 @@ describe Voyeur::Video do
 
   it "should convert a video to ogv" do
     Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: :ogv)
-    File.exist?(valid_mpeg_file_path.gsub(/mpeg/, "ogv")).should be_true
-    File.delete(valid_mpeg_file_path.gsub(/mpeg/, "ogv"))
+    ogv_file = valid_mpeg_file_path.gsub(/mpeg/, "ogv")
+    File.should exist(ogv_file)
+    File.delete(ogv_file)
   end
 
   it "should convert a video to mp4" do
     Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: :mp4)
-    File.exist?(valid_mpeg_file_path.gsub(/mpeg/, "mp4")).should be_true
-    File.delete(valid_mpeg_file_path.gsub(/mpeg/, "mp4"))
+    mp4_file = valid_mpeg_file_path.gsub(/mpeg/, "mp4")
+    File.should exist(mp4_file)
+    File.delete(mp4_file)
   end
 
   it "should convert a video to webm" do
     Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: :webm)
-    File.exist?(valid_mpeg_file_path.gsub(/mpeg/, "webm")).should be_true
-    File.delete(valid_mpeg_file_path.gsub(/mpeg/, "webm"))
+    webm_file = valid_mpeg_file_path.gsub(/mpeg/, "webm")
+    File.should exist(webm_file)
+    File.delete(webm_file)
   end
 
   it "should convert a video to all HTML5 video formats" do
     Voyeur::Video.new( filename: valid_mpeg_file_path ).convert_to_html5
-    File.exists?(valid_mpeg_file_path.gsub(/mpeg/, "mp4")).should be_true
-    File.delete(valid_mpeg_file_path.gsub(/mpeg/, "mp4"))
-    File.exists?(valid_mpeg_file_path.gsub(/mpeg/, "ogv")).should be_true
-    File.delete(valid_mpeg_file_path.gsub(/mpeg/, "ogv"))
-    File.exists?(valid_mpeg_file_path.gsub(/mpeg/, "webm")).should be_true
-    File.delete(valid_mpeg_file_path.gsub(/mpeg/, "webm"))
-  end
 
-  it "should allow user to convert given to a format given a class name" do
-    Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: Voyeur::Webm)
-    File.exist?(valid_mpeg_file_path.gsub(/mpeg/, "webm")).should be_true
-    File.delete(valid_mpeg_file_path.gsub(/mpeg/, "webm"))
+    mp4_file = valid_mpeg_file_path.gsub(/mpeg/, "mp4")
+    File.should exist(mp4_file)
+    File.delete(mp4_file)
+
+    ogv_file = valid_mpeg_file_path.gsub(/mpeg/, "ogv")
+    File.should exist(ogv_file)
+    File.delete(ogv_file)
+
+    webm_path = valid_mpeg_file_path.gsub(/mpeg/, "webm")
+    File.should exist(webm_path)
+    File.delete(webm_path)
   end
 
   it "should allow the user to name the video" do
     Voyeur::Video.new( filename: valid_mpeg_file_path ).
       convert(to: :webm, output_filename: "sexypants")
-    File.exists?("#{fixture_file_path}/sexypants.webm").should be_true
-    File.delete("#{fixture_file_path}/sexypants.webm")
+    webm_file = "#{fixture_file_path}/sexypants.webm"
+    File.should exist(webm_file)
+    File.delete(webm_file)
   end
 
   it "should allow the user to specify a video path" do
     output_path = "#{fixture_file_path}/converted"
     Voyeur::Video.new( filename: valid_mpeg_file_path ).
       convert(to: :ogv, output_path: output_path)
-    File.exists?("#{output_path}/test.ogv").should be_true
-    File.delete("#{output_path}/test.ogv")
+    test_file = "#{output_path}/test.ogv"
+    File.should exist(test_file)
+    File.delete(test_file)
   end
 
   it "should allow a user to specify a video path and filename" do
     output_path = "#{fixture_file_path}/converted"
     Voyeur::Video.new( filename: valid_mpeg_file_path ).
       convert(to: :ogv, output_path: output_path, output_filename: "supersexypants")
-    File.exists?("#{output_path}/supersexypants.ogv").should be_true
-    File.delete("#{output_path}/supersexypants.ogv")
+    supersexypants_file = "#{output_path}/supersexypants.ogv"
+    File.should exist(supersexypants_file)
+    File.delete(supersexypants_file)
+  end
+
+  it "should allow user to convert given to a format given a class name" do
+    Voyeur::Video.new( filename: valid_mpeg_file_path ).convert(to: Voyeur::Webm)
+    webm_file = valid_mpeg_file_path.gsub(/mpeg/, "webm")
+    File.should exist(webm_file).should be_true
+    File.delete(webm_file)
   end
 
   it "should allow a user to specify a video path and filename when converting all formats" do
     output_path = "#{fixture_file_path}/converted"
     Voyeur::Video.new( filename: valid_mpeg_file_path ).
       convert_to_html5(output_path: output_path, output_filename: "supersexypants")
-    File.exists?("#{output_path}/supersexypants.ogv").should be_true
-    File.delete("#{output_path}/supersexypants.ogv")
-    File.exists?("#{output_path}/supersexypants.mp4").should be_true
-    File.delete("#{output_path}/supersexypants.mp4")
-    File.exists?("#{output_path}/supersexypants.webm").should be_true
-    File.delete("#{output_path}/supersexypants.webm")
+    ogv_file = "#{output_path}/supersexypants.ogv"
+    File.should exist(ogv_file)
+    File.delete(ogv_file)
+
+    mp4_file = "#{output_path}/supersexypants.mp4"
+    File.should exist(mp4_file)
+    File.delete(mp4_file)
+
+    webm_file = "#{output_path}/supersexypants.webm"
+    File.should exist(webm_file)
+    File.delete(webm_file)
   end
 
   it "should not allow the user to specify a folder that doesn't exist" do
