@@ -4,7 +4,7 @@ describe Voyeur::Ogv do
   context "New Video" do
     before :each do
       @converter = Voyeur::Converter.create(format: :ogv)
-      @video = Voyeur::Video.new(filename: 'test_video.ogv')
+      @video = Voyeur::Media.new(filename: 'test_video.ogv')
     end
 
     it "should use the correct factory" do
@@ -18,12 +18,12 @@ describe Voyeur::Ogv do
 
       it "should raise an exception if no video is passed" do
         @video = nil
-        -> { @converter.convert(video: @video) }.should raise_error Voyeur::Exceptions::NoVideoPresent
+        -> { @converter.convert(media: @video) }.should raise_error Voyeur::Exceptions::NoMediaPresent
       end
 
       it "should return a video" do
-        @converter.convert(video: @video)
-        @converter.input_video.should == @video
+        @converter.convert(media: @video)
+        @converter.input_media.should == @video
       end
     end
   end
@@ -31,13 +31,13 @@ describe Voyeur::Ogv do
   context "An invalid Video" do
     before :each do
       @converter = Voyeur::Converter.create(format: :ogv)
-      @video = Voyeur::Video.new(filename: 'test_video.mpeg')
+      @video = Voyeur::Media.new(filename: 'test_video.mpeg')
     end
     context "File does not exist" do
       it "should return conversion status indicating failure" do
-        result = @converter.convert(video: @video)
+        result = @converter.convert(media: @video)
         result[:status].should == 1
-        result[:video].should == @converter.output_video
+        result[:media].should == @converter.output_media
         result[:error_message].should match(/test_video.mpeg: No such file or directory/)
         result[:stderr].nil?.should == false
       end

@@ -41,15 +41,10 @@ module Voyeur
     end
 
     def call_external_converter
-      # Added -y option to force overwrite
-      command = "ffmpeg -y -i #{@input_video.filename} #{self.convert_options} #{@output_video.filename}"
-      output, out, err = ""
+      command = "ffmpeg -y -i #{@input_media.filename} #{self.convert_options} #{@output_media.filename}"
+      out, err = ""
 
       status = Open4::popen4(command) do |pid, stdin, stdout, stderr|
-        # Don't know why needs that to exit process in certain files, like big mp4
-        stderr.each("r") do |line|
-          output << line
-        end
         out = stdout.read.strip
         err = stderr.read.strip
       end
@@ -57,7 +52,7 @@ module Voyeur
       error_message = err.split('\n').last
 
       @status = { status: status.exitstatus, stdout: out, stderr: err,
-        error_message: error_message, media: @output_media }
+                  error_message: error_message, media: @output_media }
       return @status
     end
   end
