@@ -6,9 +6,13 @@ module Voyeur
 
     def self.create(options)
       constant = Voyeur
-      klass = "#{options[:format].capitalize}"
-      raise Voyeur::Exceptions::InvalidFormat unless constant.const_defined? klass
-      klass = constant.const_get klass
+      klass = if options[:format].is_a?(Symbol)
+                klass_name = "#{options[:format].capitalize}"
+                raise Voyeur::Exceptions::InvalidFormat unless constant.const_defined? klass_name
+                constant.const_get klass_name
+              else
+                options[:format]
+              end
       klass.new
     end
 
