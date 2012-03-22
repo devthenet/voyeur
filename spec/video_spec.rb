@@ -6,6 +6,12 @@ describe Voyeur::Media do
     video = Voyeur::Media.new filename: video_input_name
     video.filename.should == video_input_name
   end
+  
+  it 'should get duration of a media object from a filename' do
+    video = Voyeur::Video.new( filename: valid_mpeg_file_path )
+    video.raw_duration.should_not be_nil
+    video.raw_duration.should_not == ''
+  end
 
   it "should convert a video to ogv" do
     Voyeur::Media.new( filename: valid_mpeg_file_path ).convert(to: :ogv)
@@ -98,5 +104,16 @@ describe Voyeur::Media do
     output_path = "#{fixture_file_path}/icecream"
     -> { Voyeur::Media.new( filename: valid_mpeg_file_path ).
       convert(to: :ogv, output_path: output_path) }.should raise_error Voyeur::Exceptions::InvalidLocation
+  end
+  
+  context "when convert is called with a block" do
+    it "should update the progress with time" do
+      output = ''
+      Voyeur::Media.new( filename: valid_mpeg_file_path ).convert(to: :ogv) do |time|
+        output += time
+      end
+      output.should_not == ''
+      output.length.should > 0
+    end
   end
 end

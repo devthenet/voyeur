@@ -20,8 +20,14 @@ module Voyeur
       @input_media = options[:media]
       raise Voyeur::Exceptions::NoMediaPresent unless @input_media
       output_filename = self.output_path( options[:output_path] )
-      @output_media = Media.new(filename: output_file(options[:output_path], options[:output_filename]))
-      self.call_external_converter
+      @output_video = Media.new(filename: output_file(options[:output_path], options[:output_filename]))
+      if block_given?
+        self.call_external_converter do |time|
+          yield time
+        end
+      else
+        self.call_external_converter
+      end
     end
 
     protected
@@ -45,8 +51,14 @@ module Voyeur
       out, err = ""
 
       status = Open4::popen4(command) do |pid, stdin, stdout, stderr|
-        out = stdout.read.strip
-        err = stderr.read.strip
+        err = ''
+        out = ''
+        stderr.each("r") do |line|
+          err += line
+          if line =~ /time=(\d+.\d+|\d+:\d+:\d+.\d+)/
+            yield $1 if block_given?
+          end
+        end
       end
 
       error_message = err.split('\n').last
