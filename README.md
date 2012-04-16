@@ -34,6 +34,14 @@ This will also work for audio using the same API by simply:
 
 This will convert the sound file into acc and save it in the same directory as the original video
 
+You can call convert with a block, this will return a MediaTime object.
+
+    Voyeur::Media.new( filename: path_to_file ).convert( to: :mp4 ) do |time|
+      puts time.to_seconds
+    end
+This will output how far along the video the conversion process is, it can be used to display percentage completed.
+See bin/voyuer.rb for an example.
+
 Alternatively you can convert to all 3 types at once:
 
     Voyeur::Media.new( filename: path_to_file ).convert_to_html5
