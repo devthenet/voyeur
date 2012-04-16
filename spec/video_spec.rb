@@ -8,7 +8,7 @@ describe Voyeur::Media do
   end
   
   it 'should get duration of a media object from a filename' do
-    video = Voyeur::Video.new( filename: valid_mpeg_file_path )
+    video = Voyeur::Media.new( filename: valid_mpeg_file_path )
     video.raw_duration.should_not be_nil
     video.raw_duration.should_not == ''
   end

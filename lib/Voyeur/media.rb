@@ -20,13 +20,13 @@ module Voyeur
       converter = Voyeur::Converter.create(format: options[:to])
       
       if block_given?
-        converter.convert(video: self,
+        converter.convert(media: self,
                           output_filename: options[:output_filename],
                           output_path: options[:output_path]) do |time|
                             yield time
                           end
       else
-        converter.convert(video: self,
+        converter.convert(media: self,
                           output_filename: options[:output_filename],
                           output_path: options[:output_path])
       end

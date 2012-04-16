@@ -19,8 +19,7 @@ module Voyeur
     def convert(options)
       @input_media = options[:media]
       raise Voyeur::Exceptions::NoMediaPresent unless @input_media
-      output_filename = self.output_path( options[:output_path] )
-      @output_video = Media.new(filename: output_file(options[:output_path], options[:output_filename]))
+      @output_media = Media.new(filename: output_file(options[:output_path], options[:output_filename]))
       if block_given?
         self.call_external_converter do |time|
           yield time

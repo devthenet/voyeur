@@ -11,7 +11,7 @@ format = ARGV[1]
 
 puts "Converting #{file_to_convert} to #{format}"
 
-video = Voyeur::Video.new(filename: "#{file_to_convert}")
+video = Voyeur::Media.new(filename: "#{file_to_convert}")
 
 
 video.convert(to: format.to_sym) do |time|
