@@ -17,8 +17,6 @@ video = Voyeur::Video.new(filename: "#{file_to_convert}")
 video.convert(to: format.to_sym) do |time|
   media_time = Voyeur::MediaTime.new(time).to_seconds
   duration = Voyeur::MediaTime.new(video.raw_duration).to_seconds
-  puts media_time
-  puts duration
-  percentage = (media_time/duration).to_f * 100
-  puts "#{percentage} % completed"
+  percentage = (media_time.to_f/duration.to_f) * 100
+  puts "#{'%.2f' % percentage} % complete"
 end

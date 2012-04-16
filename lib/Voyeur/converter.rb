@@ -55,7 +55,7 @@ module Voyeur
         out = ''
         stderr.each("r") do |line|
           err += line
-          if line =~ /time=(\d+.\d+|\d+:\d+:\d+.\d+)/
+          if line =~ /time=(\d+:\d+:\d+.\d+)/
             yield $1 if block_given?
           end
         end
