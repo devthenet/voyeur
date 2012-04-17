@@ -6,6 +6,25 @@ body {
   color: #fff;
   background: url(http://devthenet.github.com/voyeur/images/background.jpg) #4e4b4a;
 }
+#navigation {
+  padding: 5px;
+  background-color:  rgba(0,0,0, 0.1);
+  position: fixed;
+  top: 25px;
+  left: 20px;
+  width: auto;
+}
+#navigation li {
+  list-style: none;
+  padding: 5px;  
+}
+#navigation li a, a:visited {
+  text-decoration: none;
+}
+#navigation li a:hover {
+  text-decoration: underline;
+}
+
 .container {
   margin: 0 auto;
   width: 700px;

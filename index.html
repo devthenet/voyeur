@@ -10,6 +10,15 @@
 <body>
   <a href="https://github.com/devthenet/voyeur"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
+  <ul id="navigation">
+    <li><a href="#description">Description</a></li>
+    <li><a href="#browser_support">Browser Support</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#credits">Credits</a></li>
+    <li><a href="#setup">Setup and installation</a></li>
+    <li><a href="#download">Download</a></li>
+  </ul>
+
   <div class="container">
     <h1>
       <img src="images/logo.png" alt="Voyeur logo"/>
@@ -24,14 +33,15 @@
         <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
     </div>
 
-    <div class="description">
-      This is a rubygem that converts almost any video to HTML5 and other formats.
-      It's designed from the ground up to be easy to use, we've tried other tools
-      and they were a pain in the butt, not the kind of butt you want voyeur to
-      convert to internet viewing goodness.      
+    <div id="description" class="description">
+      A Rubygem that converts almost any video to HTML5 and other formats.
+      Easy to setup, easy to use, convenient way to put the videos you love on the internet,
+      for web browsers mobile phones and tablets alike.<br /><br />
+      Engage with your audience in a unique, branded way without any ads to distrupt the experience.
     </div>
+
     <div class="content">
-      <h2>Video Codecs</h2>
+      <h2 id="browser_support">Browser Support</h2>
        <p>
           We support any format that ffmpeg supports, if you can't seem to convert a video
           please contact us (or find a fix yourself and send a pull request) and we'll try
@@ -46,76 +56,78 @@
 
    <div class="content">
 
-  <table class="reference" id="table1">
-  <tr>
-  <th width="20%" align="left">Browser</th>
-  <th width="16%" align="left">MP4</th>
-  <th width="16%" align="left">WebM</th>
+    <table class="reference" id="support">
+    <tr>
+    <th width="20%" align="left">Browser</th>
+    <th width="16%" align="left">MP4</th>
+    <th width="16%" align="left">WebM</th>
 
-  <th width="16%" align="left">Ogg</th>
-  </tr>
-  <tr>
-  <td>Internet Explorer 9</td>
-  <td>YES</td>
-  <td>NO</td>
-  <td>NO</td>
-  </tr>
-  <tr>
-  <td>Firefox 4.0</td>
-  <td>NO</td>
+    <th width="16%" align="left">Ogg</th>
+    </tr>
+    <tr>
+    <td>Internet Explorer 9</td>
+    <td>YES</td>
+    <td>NO</td>
+    <td>NO</td>
+    </tr>
+    <tr>
+    <td>Firefox 4.0</td>
+    <td>NO</td>
 
-  <td>YES</td>
-  <td>YES</td>
-  </tr>
-  <tr>
-  <td>Google Chrome 6</td>
-  <td>YES</td>
-  <td>YES</td>
-  <td>YES</td>
-  </tr>
-  <tr>
-  <td>Apple Safari 5</td>
+    <td>YES</td>
+    <td>YES</td>
+    </tr>
+    <tr>
+    <td>Google Chrome 6</td>
+    <td>YES</td>
+    <td>YES</td>
+    <td>YES</td>
+    </tr>
+    <tr>
+    <td>Apple Safari 5</td>
 
-  <td>YES</td>
-  <td>NO</td>
-  <td>NO</td>
-  </tr>
-  <tr>
-  <td>Opera 10.6</td>
-  <td>NO</td>
-  <td>YES</td>
-  <td>YES</td>
-  </tr>
-  <tr>
-  <td>Voyeur</td>
-  <td>YES</td>
-  <td>YES</td>
-  <td>YES</td>
-  </tr>
-  </table>
-  <ul>
-	  <li>MP4 = MPEG 4 files with H264 video codec and AAC audio codec</li>
-	  <li>WebM = WebM files with VP8 video codec and Vorbis audio codec</li>
-	  <li>Ogg = Ogg files with Theora video codec and Vorbis audio codec</li>
-  </ul>
-  <p>Browser list from <a href="http://www.w3schools.com/html5/html5_video.asp">w3schools.com</a></p>
+    <td>YES</td>
+    <td>NO</td>
+    <td>NO</td>
+    </tr>
+    <tr>
+    <td>Opera 10.6</td>
+    <td>NO</td>
+    <td>YES</td>
+    <td>YES</td>
+    </tr>
+    <tr>
+    <td>Voyeur</td>
+    <td>YES</td>
+    <td>YES</td>
+    <td>YES</td>
+    </tr>
+    </table>
+    <ul>
+      <li>MP4 = MPEG 4 files with H264 video codec and AAC audio codec</li>
+      <li>WebM = WebM files with VP8 video codec and Vorbis audio codec</li>
+      <li>Ogg = Ogg files with Theora video codec and Vorbis audio codec</li>
+    </ul>
+    <p>Browser list from <a href="http://www.w3schools.com/html5/html5_video.asp">w3schools.com</a></p>
 </div>
         
-        <h2>Cool, how do I use it?</h2>
-        <p>
-          Go to the <a href="https://github.com/devthenet/voyeur/">github</a> page 
-          and follow the instructions, boss. We tried to make it easy to install and use,
-          if you find anything that isn't up to your high standards then you know what to do ;).
-        </p>
+  <h2 id="usage">Usage</h2>
+  <p>
+    Well we guess you don't want to convert videos to HTML5 formats just to take up space on your hard
+    drive, once you have the hang of converting videos to HTML5 format you should probably head over to
+    <a href="http://videojs.com/">videojs.com</a> or similiar and embed your shiny new videos right there in your browser. Once you show this to girls you are bound to get laid.
+   </p>
+    <p>
+    Go to the <a href="https://github.com/devthenet/voyeur/">github</a> page 
+    and follow the instructions like a boss. We tried to make it easy to install and use,
+    if you find anything that isn't up to your high standards then you know what to do ;).
+  </p>
         
-        <p>
-          Once you have some serious conversion done you can go to <a href="http://videojs.com/">videojs.com</a>
-          and embed your shiny new videos right there in your browser, cool huh?
-         </p>
     </div>
     
-      <h2>Authors</h2>
+      <h2 id="credits">Credits</h2>
       <div class="author">
+
         <img src="http://en.gravatar.com/userimage/22927741/469af3751305a9206b787d869efc94f5.jpg?size=200" />
         <p>Peter Garbers<br/> (peter.garbers@gmail.com)</p>
       </div>
@@ -125,10 +137,21 @@
       </div>
 
     
-      <h2>Contact</h2>
-      <p> (overlords@devthe.net)</p>
+    <h2 id="setup">Setup and installation</h2>
     
-    <h2>Download</h2>
+    <p>
+      This gem requires ffmpeg to be installed. If you require assistance
+      there is a basic guide included in the <a href="https://github.com/devthenet/Voyeur/wiki/Installing-ffmpeg-%28Ubuntu%29">wiki page</a>. Feel free to add more!
+      You can also try out automated <a href="https://github.com/devthenet/ffmpeg_setup">setup scripts</a> (at the moment we only have for ubuntu)
+    </p>
+    <p>Install the voyeur gem in the normal Ruby way</p>
+    <p>with bundler</p>
+    <pre><code>gem 'voyeur'</code></pre>
+    <p>or on the command line</p> 
+    <pre><code>gem install Voyeur
+require 'voyeur'</code></pre>
+    
+    <h2 id="download">Download</h2>
     <p>
       You can download this project in either
       <a href="https://github.com/devthenet/voyeur/zipball/master">zip</a> or
@@ -146,9 +169,9 @@
       <h2>Brought to you by</h2>
       <img src='images/home_logo.png' />
       <br clear="all"/>
+
     </div>
   </div>
-
   
 </body>
 </html>
