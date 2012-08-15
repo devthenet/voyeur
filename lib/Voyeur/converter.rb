@@ -9,7 +9,7 @@ module Voyeur
       klass = if options[:format].is_a?(Symbol)
                 klass_name = "#{options[:format].capitalize}"
                 raise Voyeur::Exceptions::InvalidFormat unless constant.const_defined? klass_name
-                constant.const_get klass_name
+                constant.const_get(klass_name)
               else
                 options[:format]
               end
@@ -21,9 +21,7 @@ module Voyeur
       raise Voyeur::Exceptions::NoMediaPresent unless @input_media
       @output_media = Media.new(filename: output_file(options[:output_path], options[:output_filename]))
       if block_given?
-        self.call_external_converter do |time|
-          yield time
-        end
+        self.call_external_converter{ |time| yield time }
       else
         self.call_external_converter
       end

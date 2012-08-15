@@ -2,47 +2,42 @@ require 'spec_helper'
 
 describe Voyeur::Webm do
   context "New Media" do
-    before :each do
-      @converter = Voyeur::Converter.create(format: :webm)
-      @media = Voyeur::Media.new(filename: 'test_media.webm')
-    end
+    let(:converter) { Voyeur::Converter.create(format: :webm) }
+    let(:media) { Voyeur::Media.new(filename: 'test_media.webm') }
 
-    it "should use the correct factory" do
-      @converter.class.to_s.should == "Voyeur::Webm"
+    it "uses the correct factory" do
+      converter.class.to_s.should == "Voyeur::Webm"
     end
 
     context "#convert_options" do
       it "default convert string" do
-        @converter.convert_options.should == "-b 1500k -vcodec libvpx -acodec libvorbis -ab 160000 -f webm -g 30"
+        converter.convert_options.should == "-b 1500k -vcodec libvpx -acodec libvorbis -ab 160000 -f webm -g 30"
       end
 
-      it "should raise an exception if no media is passed" do
-        @media = nil
-        -> { @converter.convert(media: @media) }.should raise_error Voyeur::Exceptions::NoMediaPresent
+      it "raises an exception if no media is passed" do
+        media = nil
+        -> { converter.convert(media: media) }.should raise_error Voyeur::Exceptions::NoMediaPresent
       end
 
-      it "should return a media" do
-        @converter.convert(media: @media)
-        @converter.input_media.should == @media
+      it "returns a media" do
+        converter.convert(media: media)
+        converter.input_media.should == media
       end
     end
   end
 
   context "An invalid Media" do
-    before :each do
-      @converter = Voyeur::Converter.create(format: :webm)
-      @media = Voyeur::Media.new(filename: 'test_media.mpeg')
-    end
+    let(:converter) { Voyeur::Converter.create(format: :webm) }
+    let(:media) { Voyeur::Media.new(filename: 'test_media.mpeg') }
 
     context "File does not exist" do
-      it "should return conversion status indicating failure" do
-        result = @converter.convert(media: @media)
+      it "returns conversion status indicating failure" do
+        result = converter.convert(media: media)
         result[:status].should == 1
-        result[:media].should == @converter.output_media
+        result[:media].should == converter.output_media
         result[:error_message].should match(/test_media.mpeg: No such file or directory/)
         result[:stderr].nil?.should == false
       end
     end
   end
-
 end
