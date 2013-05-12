@@ -47,7 +47,7 @@ module Voyeur
       command = "ffmpeg -y -i #{@input_media.filename} #{self.convert_options} #{@output_media.filename}"
       out, err = ""
 
-      status = Open4::popen4(command) do |pid, stdin, stdout, stderr|
+      OPEN4::popen4(command) do |pid, stdin, stdout, stderr|
         err = ''
         out = ''
         stderr.each("r") do |line|
@@ -58,9 +58,9 @@ module Voyeur
         end
       end
 
-      error_message = err.split('\n').last
+      error_message = err.split("\n").last
 
-      @status = { status: status.exitstatus, stdout: out, stderr: err,
+      @status = { status: $?.exitstatus, stdout: out, stderr: err,
                   error_message: error_message, media: @output_media }
       return @status
     end

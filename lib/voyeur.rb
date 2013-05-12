@@ -10,3 +10,7 @@ require "Voyeur/audio_converters/aac"
 require "Voyeur/audio_converters/ogg"
 require "Voyeur/media_time"
 require 'open4'
+
+module Voyeur
+  OPEN4 = RUBY_PLATFORM =~ /java/ ? IO : Open4
+end
