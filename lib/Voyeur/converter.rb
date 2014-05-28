@@ -51,7 +51,7 @@ module Voyeur
         err = ''
         out = ''
         stderr.each("r") do |line|
-          err += line
+          err += line.force_encoding('BINARY')
           if line =~ /time=(\d+:\d+:\d+.\d+)/
             yield $1 if block_given?
           end
